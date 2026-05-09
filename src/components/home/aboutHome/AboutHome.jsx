@@ -1,6 +1,6 @@
 import { HiArrowRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import MiFoto from "../../../assets/img/MiFoto.png";
+import MiFoto from "../../../assets/img/chido.jpeg";
 
 export default function AboutHome() {
     return (
