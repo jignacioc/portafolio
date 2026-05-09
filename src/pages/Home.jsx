@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <>
             <Header />
-            {/* TODO: Add Slider once converted */}
+            <Slider />
             <AboutHome />
             <HomeProyect />
             <FAQS />

@@ -13,6 +13,7 @@ const links = [
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [hovered, setHovered] = useState(false);
     const location = useLocation();
 
     const closeMenu = () => setIsOpen(false);
@@ -22,6 +23,9 @@ export default function Navbar() {
         closeMenu();
     }, [location.pathname]);
 
+    const isDemoBms = location.pathname.startsWith("/proyectos/bms-core");
+    const isCollapsed = isDemoBms && !hovered && !isOpen;
+
     const isActive = (path) => {
         const currentPath = location.pathname.replace(/\/$/, "") || "/";
         const linkPath = path.replace(/\/$/, "") || "/";
@@ -30,8 +34,22 @@ export default function Navbar() {
 
     return (
         <nav className="relative">
+            {/* Hover trigger (solo en demo, md+) */}
+            {isDemoBms && (
+                <div
+                    className="hidden md:block fixed top-0 left-0 w-full h-3 z-[60]"
+                    onMouseEnter={() => setHovered(true)}
+                />
+            )}
+
             {/* Navbar */}
-            <nav className="fixed top-0 left-0 w-full z-50 bg-gray-950/20 backdrop-blur-md border-b border-white/10">
+            <nav
+                onMouseEnter={() => isDemoBms && setHovered(true)}
+                onMouseLeave={() => isDemoBms && setHovered(false)}
+                className={`fixed top-0 left-0 w-full z-50 border-b border-white/10 transition-transform duration-300 ease-out ${isDemoBms ? "bg-gray-950" : "bg-gray-950/20 backdrop-blur-md"
+                    } ${isCollapsed ? "md:-translate-y-[calc(100%-6px)]" : "translate-y-0"
+                    }`}
+            >
                 <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
                     {/* Logo */}
                     <Link to="/" className="flex items-center">

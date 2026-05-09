@@ -72,11 +72,13 @@ export default function Proyectos() {
                     <ProjectCard
                         key={proyecto.titulo}
                         titulo={proyecto.titulo}
+                        slug={proyecto.slug}
                         descripcion={proyecto.descripcion}
                         imagen={proyecto.imagen}
                         tecnologias={proyecto.tecnologias}
                         demo={proyecto.demo}
                         codigo={proyecto.codigo}
+                        codigoPrivado={proyecto.codigoPrivado}
                     />
                 ))}
             </div>

@@ -1,13 +1,22 @@
+import { useState } from "react";
 import { HiArrowRight } from "react-icons/hi";
+import { Link } from "react-router-dom";
+import PrivateRepoModal from "../commons/PrivateRepoModal.jsx";
 
 export default function ProjectCard({
     titulo,
+    slug,
     descripcion,
     imagen,
     tecnologias,
     demo,
     codigo,
+    codigoPrivado,
 }) {
+    const [showPrivateModal, setShowPrivateModal] = useState(false);
+    const isInternalDemo = demo === true && slug;
+    const hasDemo = isInternalDemo || (demo && demo !== "#");
+
     return (
         <div className="project-card z-10 flex w-[400px] flex-col overflow-hidden rounded-lg bg-gray-900 shadow-lg transition-transform hover:scale-[1.01] lg:w-[320px] drop-shadow-[4px_4px_0_#7836cf]">
             <img
@@ -33,34 +42,66 @@ export default function ProjectCard({
 
                 <p className="flex grow text-gray-400">{descripcion}</p>
 
-                <div className="mt-auto flex justify-between">
-                    <a
-                        className="group text-primary mt-6 flex items-center justify-start p-0 font-bold text-lg"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={demo}
-                    >
-                        Demo
-                        <HiArrowRight
-                            className="ml-1 transition-transform duration-200 group-hover:translate-x-1"
-                            size={18}
-                        />
-                    </a>
+                <div className={`mt-auto flex ${hasDemo ? "justify-between" : "justify-center"}`}>
+                    {hasDemo && (isInternalDemo ? (
+                        <Link
+                            to={`/proyectos/${slug}`}
+                            className="group text-primary mt-6 flex items-center justify-start p-0 font-bold text-lg"
+                        >
+                            Demo
+                            <HiArrowRight
+                                className="ml-1 transition-transform duration-200 group-hover:translate-x-1"
+                                size={18}
+                            />
+                        </Link>
+                    ) : (
+                        <a
+                            className="group text-primary mt-6 flex items-center justify-start p-0 font-bold text-lg"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={demo}
+                        >
+                            Demo
+                            <HiArrowRight
+                                className="ml-1 transition-transform duration-200 group-hover:translate-x-1"
+                                size={18}
+                            />
+                        </a>
+                    ))}
 
-                    <a
-                        className="group text-primary mt-6 flex items-center justify-start p-0 font-bold text-lg"
-                        href={codigo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Código
-                        <HiArrowRight
-                            className="ml-1 transition-transform duration-200 group-hover:translate-x-1"
-                            size={18}
-                        />
-                    </a>
+                    {codigoPrivado ? (
+                        <button
+                            type="button"
+                            onClick={() => setShowPrivateModal(true)}
+                            className="group text-primary mt-6 flex items-center justify-start p-0 font-bold text-lg bg-transparent border-none cursor-pointer"
+                        >
+                            Código
+                            <HiArrowRight
+                                className="ml-1 transition-transform duration-200 group-hover:translate-x-1"
+                                size={18}
+                            />
+                        </button>
+                    ) : (
+                        <a
+                            className="group text-primary mt-6 flex items-center justify-start p-0 font-bold text-lg"
+                            href={codigo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Código
+                            <HiArrowRight
+                                className="ml-1 transition-transform duration-200 group-hover:translate-x-1"
+                                size={18}
+                            />
+                        </a>
+                    )}
                 </div>
             </div>
+
+            <PrivateRepoModal
+                open={showPrivateModal}
+                onClose={() => setShowPrivateModal(false)}
+            />
         </div>
     );
 }
