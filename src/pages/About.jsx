@@ -1,6 +1,7 @@
 import Hero from "../components/commons/hero/Hero.jsx";
 import AboutMe from "../components/about/AboutMe.jsx";
 import Experience from "../components/about/Experience.jsx";
+import Education from "../components/about/Education.jsx";
 import Features from "../components/about/Features.jsx";
 import Skills from "../components/about/Skills.jsx";
 import FaqsAbout from "../components/about/FaqsAbout.jsx";
@@ -13,6 +14,7 @@ export default function About() {
             <Hero titulo="Sobre Mi" />
             <AboutMe />
             <Experience />
+            <Education />
             <Features />
             <Skills />
             <FaqsAbout />
