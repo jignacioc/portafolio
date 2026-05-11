@@ -1,15 +1,22 @@
 import { useState } from "react";
 import "../../styles/experiencie.css";
 
-export default function TimelineTabs({ title, items }) {
+export default function TimelineTabs({ title, items, align = "left" }) {
     const lastIndex = items.length - 1;
     const [activeIndex, setActiveIndex] = useState(lastIndex);
 
+    const alignClass = align === "right" ? "md:text-end" : "md:text-start";
+    const line = (
+        <span className="hidden h-1.5 grow rounded-lg drop-shadow-[2px_2px_0_#0debd8] bg-[#7836cf] md:block"></span>
+    );
+    const titleSpan = (
+        <span className="drop-shadow-[2px_2px_0_#7836cf]">{title}</span>
+    );
+
     return (
         <section className="site-container timeline-tabs mt-16 mx-auto max-w-6xl px-4">
-            <h2 className="text-4xl font-bold flex flex-col items-center gap-6 text-center whitespace-nowrap text-white md:flex-row md:items-center md:text-start">
-                <span className="drop-shadow-[2px_2px_0_#7836cf]">{title}</span>
-                <span className="hidden h-1.5 grow rounded-lg drop-shadow-[2px_2px_0_#0debd8] bg-[#7836cf] md:block"></span>
+            <h2 className={`text-4xl font-bold flex flex-col items-center gap-6 text-center whitespace-nowrap text-white md:flex-row md:items-center ${alignClass}`}>
+                {align === "right" ? <>{line}{titleSpan}</> : <>{titleSpan}{line}</>}
             </h2>
 
             <section className="jobs">
