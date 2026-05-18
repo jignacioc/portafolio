@@ -48,5 +48,3 @@ Todos los comandos se ejecutan desde la raíz del proyecto:
 | `npm run build`    | Compila la versión de producción a `./dist/`        |
 | `npm run preview`  | Previsualiza el build localmente                    |
 
----
-![Portfolio](https://github.com/user-attachments/assets/8c01d06f-2d36-46c1-a3ff-a6f7bf73ab67)
