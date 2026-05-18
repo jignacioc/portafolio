@@ -17,10 +17,11 @@ export default function Header() {
                 <TypeEfect />
 
                 <p className="text-xs md:text-xl text-white max-w-sm md:max-w-xl font-semibold mt-3">
-                    Ingeniero en Informática especializado en backend, DevOps e IoT/OT.
-                    Diseño y opero arquitecturas distribuidas que conectan protocolos
-                    industriales, integridad de datos transaccionales y observabilidad de
-                    punta a punta incluso en entornos aislados.
+                    Ingeniero en informática y computación egresado en 2024. Desde
+                    entonces, feliz de estar creciendo y potenciando mis habilidades en lo
+                    que realmente me apasiona. Me especializo en el backend y en la
+                    infraestructura que lo sostiene, porque creo que un buen desarrollo no
+                    sirve de nada si no tiene una base robusta y escalable.
                 </p>
 
                 <SocialIcons />

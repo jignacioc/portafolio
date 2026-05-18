@@ -16,7 +16,7 @@ export const jobs = [
     description:
       "Plataformas backend y DevOps para BMS y sistemas críticos, conectando equipos industriales con servicios cloud/on-prem en entornos aislados.",
     list: [
-      "Liderazgo en el diseño de sistemas BMS desde cero: ingestión Modbus TCP/RTU y SNMP, APIs Django/DRF, workers Celery/Redis y despliegue con Docker, Nginx y Gunicorn.",
+      "Único desarrollador backend y arquitecto de software del sistema BMS, construido desde cero: ingestión Modbus TCP/RTU y SNMP, APIs Django/DRF, workers Celery/Redis y despliegue con Docker, Nginx y Gunicorn.",
       "Arquitectura distribuida con integridad de datos transaccionales, reintentos idempotentes y colas resilientes para operación offline/edge.",
       "Observabilidad end-to-end: Prometheus + Alertmanager, Grafana, Node Exporter y cAdvisor para detectar cuellos de botella y capacity planning.",
       "Automatización de backups y flujos de entrega con Docker Compose, hardening en Linux (Ubuntu) y seguridad con JWT.",

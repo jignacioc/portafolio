@@ -32,9 +32,10 @@ export default function AboutMe() {
                 </p>
                 <p className="mt-2">
                     Crecí rápido en Teknica: inicié en práctica profesional y fui contratado
-                    al terminarla por liderar desde cero el diseño de sistemas BMS (Building
-                    Management Systems), instrumentando observabilidad con Prometheus,
-                    Grafana/Alertmanager y automatizando despliegues reproducibles.
+                    al terminarla como único desarrollador a cargo del proyecto end-to-end
+                    — backend, infraestructura, base de datos y QA — instrumentando
+                    observabilidad con Prometheus, Grafana/Alertmanager y automatizando
+                    despliegues reproducibles.
                 </p>
                 <p className="mt-2">
                     Creo en la convergencia IT/OT como ventaja competitiva: combino protocolos

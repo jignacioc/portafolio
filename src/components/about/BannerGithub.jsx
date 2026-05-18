@@ -1,5 +1,5 @@
 const githubUrl = "https://github.com/jignacioc";
-const imageUrl = "/github.png";
+const imageUrl = `${import.meta.env.BASE_URL}github.png`;
 
 export default function BannerGithub() {
     return (

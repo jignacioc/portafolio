@@ -47,7 +47,7 @@ const SkillsList = () => {
       "Implemento monitoreo con Prometheus, Grafana y Alertmanager, más healthchecks con Node Exporter y cAdvisor; refuerzo integridad de datos con reintentos idempotentes y trazabilidad de eventos.",
     ],
     "Cómo trabajo en equipo": [
-      "Trabajo en sprints cortos, documentación técnica clara y handoffs con SLOs; uso Git/GitHub, Jira y pipelines ligeros para mantener trazabilidad y velocidad.",
+      "Trabajo en sprints cortos, documentación técnica clara y handoffs con SLOs; uso Git/GitHub y pipelines ligeros para mantener trazabilidad y velocidad.",
     ],
   };
 

@@ -67,10 +67,10 @@ const SkillsList = () => {
       "Arquitectura distribuida con integridad de datos, reintentos idempotentes y operación en entornos aislados. Observabilidad con Prometheus, Grafana y Alertmanager para alertas accionables.",
     ],
     "Formación": [
-      "Ingeniero en Informática. Fui contratado inmediatamente después de mi práctica profesional en Teknica by Legrand por liderar iniciativas de BMS y observabilidad.",
+      "Ingeniero en Informática. Fui contratado inmediatamente después de mi práctica profesional en Teknica by Legrand como único desarrollador backend y arquitecto de software del proyecto BMS y de su stack de observabilidad.",
     ],
     "Cómo trabajo en equipo": [
-      "Trabajo en sprints cortos con entregables claros, documentación técnica y handoffs con SLOs. Uso Git/GitHub, Jira y pipelines ligeros para mantener trazabilidad y velocidad.",
+      "Trabajo en sprints cortos con entregables claros, documentación técnica y handoffs con SLOs. Uso Git/GitHub y pipelines ligeros para mantener trazabilidad y velocidad.",
     ],
   };
 
