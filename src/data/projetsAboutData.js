@@ -2,7 +2,7 @@ import urbanStyle from "../assets/img-projects/urbanStyle.png";
 
 export const proyectos = [
   {
-    titulo: "BMS Core Platform",
+    titulo: "SCADA Software",
     slug: "bms-core",
     imagen: urbanStyle,
     tecnologias: [

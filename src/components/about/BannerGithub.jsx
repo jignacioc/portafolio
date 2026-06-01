@@ -22,7 +22,7 @@ export default function BannerGithub() {
                         <h3 className="text-5xl font-bold md:text-4xl text-white">Repos de Backend, IoT y DevOps</h3>
                         <p className="mt-2 text-sm md:text-xl text-white">
                             Playgrounds de arquitectura distribuida, pipelines de observabilidad y utilidades
-                            para BMS/IT-OT. Código listo para ser usado o adaptado en entornos aislados.
+                            para SCADA/IT-OT. Código listo para ser usado o adaptado en entornos aislados.
                         </p>
                         <a
                             href={githubUrl}

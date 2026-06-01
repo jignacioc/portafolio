@@ -61,13 +61,13 @@ const SkillsList = () => {
       "Backend con Python (Django/DRF), Java y JavaScript; PostgreSQL para datos transaccionales; Celery + Redis + Gunicorn orquestados en Docker/Nginx.",
     ],
     "Especialización IT/OT": [
-      "Convergencia de redes industriales e IT: Modbus TCP/RTU y SNMP para captura en campo, normalización y publicación de métricas hacia APIs y dashboards BMS.",
+      "Convergencia de redes industriales e IT: Modbus TCP/RTU y SNMP para captura en campo, normalización y publicación de métricas hacia APIs y dashboards SCADA.",
     ],
     "Confiabilidad y observabilidad": [
       "Arquitectura distribuida con integridad de datos, reintentos idempotentes y operación en entornos aislados. Observabilidad con Prometheus, Grafana y Alertmanager para alertas accionables.",
     ],
     "Formación": [
-      "Ingeniero en Informática. Fui contratado inmediatamente después de mi práctica profesional en Teknica by Legrand como único desarrollador backend y arquitecto de software del proyecto BMS y de su stack de observabilidad.",
+      "Ingeniero en Informática. Fui contratado inmediatamente después de mi práctica profesional en Teknica by Legrand como único desarrollador backend y arquitecto de software del proyecto SCADA y de su stack de observabilidad.",
     ],
     "Cómo trabajo en equipo": [
       "Trabajo en sprints cortos con entregables claros, documentación técnica y handoffs con SLOs. Uso Git/GitHub y pipelines ligeros para mantener trazabilidad y velocidad.",

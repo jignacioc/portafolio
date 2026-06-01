@@ -11,7 +11,7 @@ import Contact from "./pages/Contact.jsx";
 import Proyectos from "./pages/Proyectos.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
-// Demo BMS
+// Demo SCADA
 import BmsLayout from "./pages/demos/bms/Layout.jsx";
 import BmsLogin from "./pages/demos/bms/Login.jsx";
 import BmsInicio from "./pages/demos/bms/Inicio.jsx";
@@ -44,7 +44,7 @@ export default function App() {
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/proyectos" element={<Proyectos />} />
 
-                        {/* Demo BMS Core */}
+                        {/* Demo SCADA Core */}
                         <Route path="/proyectos/bms-core" element={<BmsLogin />} />
                         <Route path="/proyectos/bms-core" element={<BmsLayout />}>
                             <Route path="inicio" element={<BmsInicio />} />

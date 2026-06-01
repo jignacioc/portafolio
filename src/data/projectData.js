@@ -2,10 +2,10 @@ import urbanStyle from "../assets/img-projects/urbanStyle.png";
 
 export const proyectos = [
   {
-    titulo: "BMS Core Platform",
+    titulo: "SCADA Software",
     slug: "bms-core",
     descripcion:
-      "Plataforma BMS con ingestión Modbus/SNMP, APIs Django/DRF y workers Celery/Redis para control de dispositivos y métricas en tiempo real.",
+      "Plataforma SCADA con ingestión Modbus/SNMP, APIs Django/DRF y workers Celery/Redis para control de dispositivos y métricas en tiempo real.",
     imagen: urbanStyle,
     tecnologias: [
       "Python",

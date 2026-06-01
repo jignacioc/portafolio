@@ -17,8 +17,8 @@ export default function Features() {
                 />
                 <ServiceCard
                     icon={FaBolt}
-                    title="Plataformas IoT/OT y BMS"
-                    description="Ingestión de datos en campo (Modbus TCP/RTU, SNMP) y orquestación de microservicios para Building Management Systems, con resiliencia en entornos offline."
+                    title="Plataformas IoT/OT y SCADA"
+                    description="Ingestión de datos en campo (Modbus TCP/RTU, SNMP) y orquestación de microservicios para sistemas SCADA de supervisión y control industrial, con resiliencia en entornos offline."
                 />
 
                 <ServiceCard

@@ -29,7 +29,7 @@ export default function Login() {
         <div className="min-h-screen w-full bg-[#f1f4f6] flex flex-col">
             <div className="bg-white border-b border-gray-200 px-6 py-2 text-xs flex items-center justify-between">
                 <span className="text-gray-500">
-                    Demo · BMS Core Platform (&lt;Generico&gt;)
+                    Demo · SCADA Software (&lt;Generico&gt;)
                 </span>
                 <Link
                     to="/proyectos"
