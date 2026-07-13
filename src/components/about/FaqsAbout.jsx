@@ -58,7 +58,7 @@ const SkillsList = () => {
 
   const skills = {
     "Arquitectura y stack": [
-      "Backend con Python (Django/DRF), Java y JavaScript; PostgreSQL e InfluxDB v2 para datos transaccionales y time-series; Celery + Redis + Gunicorn orquestados en Docker/Nginx.",
+      "Backend con Python (Django/DRF), Java y JavaScript; PostgreSQL para datos transaccionales; Celery + Redis + Gunicorn orquestados en Docker/Nginx.",
     ],
     "Especialización IT/OT": [
       "Convergencia de redes industriales e IT: Modbus TCP/RTU y SNMP para captura en campo, normalización y publicación de métricas hacia APIs y dashboards BMS.",

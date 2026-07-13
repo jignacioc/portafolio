@@ -18,11 +18,10 @@ export default function Banner() {
                         Contáctame
                     </Link>
                     <a
-                        href="#"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            alert("Próximamente");
-                        }}
+                        href={`${import.meta.env.BASE_URL}CV_Joaquin_Clark.pdf`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        download
                         className="rounded-lg bg-primary hover:bg-secondary drop-shadow-[2px_2px_0_#0debd8] px-6 py-3 text-lg font-semibold text-white transition active:translate-0.5 active:drop-shadow-none"
                     >
                         Curriculum

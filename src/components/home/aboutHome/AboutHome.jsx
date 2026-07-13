@@ -26,12 +26,12 @@ export default function AboutHome() {
                         Sobre Mí
                     </h2>
                     <p className="mt-2 font-semibold text-white">
-                        Soy Joaquín Ignacio Clark (24), Ingeniero en Informática y actual
-                        Ingeniero de Software/Arquitecto de Soluciones IoT en Teknica by
-                        Legrand. Diseño sistemas desde la captura de datos en campo
-                        (Modbus TCP/RTU, SNMP) hasta APIs y orquestación de infraestructura
-                        Dockerizada, garantizando integridad de datos transaccionales, alta
-                        disponibilidad y monitoreo en entornos offline.
+                        Soy Joaquín Ignacio Clark (24), Ingeniero en Informática.
+                        Desarrollador backend enfocado en el modelado de datos, las APIs y
+                        la infraestructura que las ejecuta (Docker, Linux, observabilidad).
+                        En Teknica by Legrand llevo plataformas de telemetría IoT/OT a
+                        producción real, de la base de datos al despliegue y la puesta en
+                        marcha. Perfil versátil y abierto a nuevos dominios.
                     </p>
 
                     <Link

@@ -10,7 +10,6 @@ export const technologies = [
   { name: "Java", icon: devicon("java"), category: "backend" },
   { name: "JavaScript", icon: devicon("javascript"), category: "backend" },
   { name: "PostgreSQL", icon: devicon("postgresql"), category: "backend" },
-  { name: "InfluxDB v2", icon: devicon("influxdb"), category: "backend" },
   { name: "Redis", icon: devicon("redis"), category: "backend" },
   { name: "Celery / Celery Beat", icon: local("celery.svg"), category: "backend" },
   { name: "Gunicorn", icon: local("gunicorn.svg"), category: "backend" },
@@ -32,4 +31,5 @@ export const technologies = [
   // IoT / OT — protocolos industriales
   { name: "Modbus TCP/RTU", icon: local("modbus.svg"), category: "iot" },
   { name: "SNMP", icon: local("snmp.svg"), category: "iot" },
+  { name: "KNX", icon: local("knx.svg"), category: "iot" },
 ];

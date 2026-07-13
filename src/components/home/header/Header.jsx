@@ -17,24 +17,24 @@ export default function Header() {
                 <TypeEfect />
 
                 <p className="text-xs md:text-xl text-white max-w-sm md:max-w-xl font-semibold mt-3">
-                    Ingeniero en informática y computación egresado en 2024. Desde
-                    entonces, feliz de estar creciendo y potenciando mis habilidades en lo
-                    que realmente me apasiona. Me especializo en el backend y en la
-                    infraestructura que lo sostiene, porque creo que un buen desarrollo no
-                    sirve de nada si no tiene una base robusta y escalable.
+                    Ingeniero en Informática y Computación (2024). Me especializo en
+                    desarrollo <strong>backend</strong> y en la infraestructura que lo
+                    ejecuta y despliega —contenerización, orquestación de servicios, redes
+                    y observabilidad—, con experiencia real llevando software crítico de
+                    telemetría a producción. Perfil técnico versátil y abierto a nuevos
+                    dominios.
                 </p>
 
                 <SocialIcons />
 
                 <a
-                    href="#"
-                    onClick={(e) => {
-                        e.preventDefault();
-                        alert("Próximamente");
-                    }}
+                    href={`${import.meta.env.BASE_URL}CV_Joaquin_Clark.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download
                     className="px-6 py-3 bg-primary hover:bg-secondary mt-3 text-white font-semibold rounded-3xl transition-all duration-150 drop-shadow-[2px_2px_0_#0debd8] active:translate-0.5 active:drop-shadow-none"
                 >
-                    CV Próximamente
+                    Descargar CV
                 </a>
             </main>
         </header>

@@ -18,9 +18,10 @@ export default function AboutMe() {
                     Mi nombre es <span className="text-white text-shadow">Joaquín Ignacio Clark</span>
                 </h2>
                 <p className="mt-4">
-                    Soy Ingeniero en Informática (24) y trabajo como Ingeniero de Software y
-                    Arquitecto de Soluciones IoT en Teknica by Legrand. Me especializo en
-                    backend, DevOps y arquitectura distribuida para sistemas críticos.
+                    Soy Ingeniero en Informática (24). Me especializo en desarrollo
+                    <span className="text-white font-semibold"> backend</span>, modelado de
+                    datos y DevOps para sistemas críticos, y actualmente trabajo en Teknica
+                    by Legrand llevando plataformas de telemetría IoT/OT a producción real.
                 </p>
                 <p className="mt-2">
                     Diseño soluciones end-to-end: desde la adquisición de datos en campo

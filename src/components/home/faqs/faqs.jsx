@@ -38,16 +38,24 @@ const SkillsList = () => {
 
   const skills = {
     "Arquitectura y Backend": [
-      "Diseño servicios con Python (Django/DRF) y Java, orquestados con Docker/Nginx, con colas Celery + Redis y bases PostgreSQL e InfluxDB v2 para datos transaccionales y time-series.",
+      "Modelado de datos desde el esquema: diseño las tablas y relaciones (PostgreSQL) a partir del problema y las implemento como modelos con el ORM de Django.",
+      "Desarrollo backend end-to-end en Django / DRF (patrón MTV): vistas y endpoints que orquestan la lógica de negocio, validaciones y serialización de datos.",
+      "Tareas asíncronas y programadas con Celery / Celery Beat: jobs periódicos y procesamiento en segundo plano.",
+      "APIs REST, autenticación con JWT y capa de datos integrada con PostgreSQL y Redis.",
     ],
     "IoT/OT y redes": [
-      "Especializado en convergencia IT/OT: captura y control con Modbus TCP/RTU y SNMP, publicación segura hacia microservicios y operación en entornos aislados (offline).",
+      "Adquisición y control de dispositivos en campo con Modbus TCP/RTU, SNMP y KNX, a nivel de librería (entendiendo el protocolo).",
+      "Normalización de métricas y publicación segura hacia el backend y los microservicios.",
+      "Operación en entornos aislados (offline / edge) con colas resilientes e integridad de datos.",
     ],
     "Observabilidad y fiabilidad": [
-      "Implemento monitoreo con Prometheus, Grafana y Alertmanager, más healthchecks con Node Exporter y cAdvisor; refuerzo integridad de datos con reintentos idempotentes y trazabilidad de eventos.",
+      "Monitoreo y dashboards con Prometheus, Grafana y Alertmanager; métricas de host y contenedores con Node Exporter y cAdvisor.",
+      "Fiabilidad de datos: reintentos idempotentes, trazabilidad de eventos e integridad transaccional.",
+      "Pruebas exhaustivas antes de cada puesta en producción.",
     ],
-    "Cómo trabajo en equipo": [
-      "Trabajo en sprints cortos, documentación técnica clara y handoffs con SLOs; uso Git/GitHub y pipelines ligeros para mantener trazabilidad y velocidad.",
+    "Cómo trabajo": [
+      "Ownership end-to-end: del modelado y el desarrollo al despliegue y la puesta en marcha en terreno.",
+      "Sprints cortos, control de versiones con Git / GitHub y documentación técnica clara.",
     ],
   };
 
@@ -92,13 +100,15 @@ const SkillsList = () => {
                 <div
                   className={`px-4 transition-all duration-300 ${
                     openItem === category
-                      ? "max-h-[500px] pb-4 opacity-100"
+                      ? "max-h-[700px] pb-4 opacity-100"
                       : "max-h-0 opacity-0"
                   }`}
                 >
-                  <p className="text-[0.8em] text-white text-semibold ">
-                    {skills[category]}
-                  </p>
+                  <ul className="list-disc space-y-1.5 pl-5 text-[0.82em] font-medium text-gray-200">
+                    {items.map((item, i) => (
+                      <li key={i}>{item}</li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </li>
