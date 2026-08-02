@@ -66,7 +66,7 @@ const SkillsList = () => {
   };
 
   return (
-    <Reveal as="section" className="mx-auto w-full max-w-6xl px-5 pb-4 md:px-6">
+    <Reveal as="section" className="mx-auto mt-20 w-full max-w-6xl px-5 pb-4 md:px-6">
         <SectionHeading>Perfil técnico</SectionHeading>
         <ul className="mt-8 space-y-3">
           {Object.entries(skills).map(([category, items]) => (

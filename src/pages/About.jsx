@@ -3,7 +3,6 @@ import AboutMe from "../components/about/AboutMe.jsx";
 import Experience from "../components/about/Experience.jsx";
 import Education from "../components/about/Education.jsx";
 import Features from "../components/about/Features.jsx";
-import Skills from "../components/about/Skills.jsx";
 import FaqsAbout from "../components/about/FaqsAbout.jsx";
 import BannerGithub from "../components/about/BannerGithub.jsx";
 import Banner from "../components/commons/banners/Banner.jsx";
@@ -16,7 +15,6 @@ export default function About() {
             <Experience />
             <Education />
             <Features />
-            <Skills />
             <FaqsAbout />
             <BannerGithub />
             <Banner />

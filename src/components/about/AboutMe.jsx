@@ -16,7 +16,6 @@ export default function AboutMe() {
             </div>
 
             <div className="text-left text-muted">
-                <span className="stack-chip mb-5">PROFILE: SOFTWARE ENGINEER</span>
                 <h2 className="text-2xl font-semibold text-ink md:text-3xl">
                     Mi nombre es <span className="text-phosphor">Joaquín Ignacio Clark</span>
                 </h2>
