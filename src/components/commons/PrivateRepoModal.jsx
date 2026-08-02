@@ -32,30 +32,30 @@ export default function PrivateRepoModal({ open, onClose }) {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.98 }}
                         transition={{ duration: 0.22, ease: "easeOut" }}
-                        className="relative w-full max-w-md rounded-xl bg-gray-900 border border-white/10 px-7 py-8 text-center drop-shadow-[4px_4px_0_#7836cf]"
+                        className="tech-panel relative w-full max-w-md bg-panel px-7 py-8 text-center"
                     >
                         <button
                             onClick={onClose}
                             aria-label="Cerrar"
-                            className="absolute top-3 right-3 text-white/60 hover:text-white bg-transparent border-none cursor-pointer"
+                            className="absolute top-3 right-3 cursor-pointer border-none bg-transparent text-muted hover:text-phosphor"
                         >
                             <FiX className="h-5 w-5" />
                         </button>
 
                         <h3
                             id="private-repo-title"
-                            className="text-2xl font-bold text-[#69c7c7] drop-shadow-[2px_2px_0_#7836cf] mb-3"
+                            className="mb-3 text-2xl font-semibold text-phosphor"
                         >
                             Repositorio privado
                         </h3>
 
-                        <p className="text-white/80 font-semibold">
+                        <p className="text-muted">
                             Este repositorio es privado.
                         </p>
 
                         <button
                             onClick={onClose}
-                            className="mt-6 px-6 py-2 cursor-pointer border-none bg-[#69c7c7] text-[#1d1250] font-bold rounded-full hover:bg-[#46caca] drop-shadow-[2px_2px_0_#7836cf] active:translate-y-0.5 active:drop-shadow-none transition-all"
+                            className="terminal-button terminal-button--solid mt-6 cursor-pointer"
                         >
                             Entendido
                         </button>

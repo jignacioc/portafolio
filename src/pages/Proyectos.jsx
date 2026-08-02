@@ -32,30 +32,30 @@ export default function Proyectos() {
             <Hero titulo="Proyectos" />
 
             {/* Botones */}
-            <div className="mt-6 mb-6 flex flex-wrap justify-center gap-3 px-2">
+            <div className="mx-auto mt-10 mb-4 flex max-w-6xl flex-wrap justify-center gap-3 px-5">
                 <button
-                    className={`filter-btn cursor-pointer rounded-full px-5 py-1.5 text-sm font-bold drop-shadow-[2px_2px_0_#7836cf] transition-all duration-150 active:translate-y-0.5 border-none ${activeFilter === "all" ? "bg-[#46caca] text-white" : "bg-[#69c7c7] text-[#1d1250]"
+                    className={`filter-btn cursor-pointer border px-4 py-2 font-technical text-xs transition-colors ${activeFilter === "all" ? "active border-phosphor bg-phosphor text-void" : "border-line bg-panel text-muted hover:border-phosphor-dim hover:text-phosphor"
                         }`}
                     onClick={() => handleFilterClick("all")}
                 >
                     Todos
                 </button>
                 <button
-                    className={`filter-btn cursor-pointer rounded-full px-5 py-1.5 text-sm font-bold drop-shadow-[2px_2px_0_#7836cf] transition-all duration-150 active:translate-y-0.5 border-none ${activeFilter === "backend" ? "bg-[#46caca] text-white" : "bg-[#69c7c7] text-[#1d1250]"
+                    className={`filter-btn cursor-pointer border px-4 py-2 font-technical text-xs transition-colors ${activeFilter === "backend" ? "active border-phosphor bg-phosphor text-void" : "border-line bg-panel text-muted hover:border-phosphor-dim hover:text-phosphor"
                         }`}
                     onClick={() => handleFilterClick("backend")}
                 >
                     Backend
                 </button>
                 <button
-                    className={`filter-btn cursor-pointer rounded-full px-5 py-1.5 text-sm font-bold drop-shadow-[2px_2px_0_#7836cf] transition-all duration-150 active:translate-y-0.5 border-none ${activeFilter === "infra" ? "bg-[#46caca] text-white" : "bg-[#69c7c7] text-[#1d1250]"
+                    className={`filter-btn cursor-pointer border px-4 py-2 font-technical text-xs transition-colors ${activeFilter === "infra" ? "active border-phosphor bg-phosphor text-void" : "border-line bg-panel text-muted hover:border-phosphor-dim hover:text-phosphor"
                         }`}
                     onClick={() => handleFilterClick("infra")}
                 >
                     Infra / DevOps
                 </button>
                 <button
-                    className={`filter-btn cursor-pointer rounded-full px-5 py-1.5 text-sm font-bold drop-shadow-[2px_2px_0_#7836cf] transition-all duration-150 active:translate-y-0.5 border-none ${activeFilter === "iot" ? "bg-[#46caca] text-white" : "bg-[#69c7c7] text-[#1d1250]"
+                    className={`filter-btn cursor-pointer border px-4 py-2 font-technical text-xs transition-colors ${activeFilter === "iot" ? "active border-phosphor bg-phosphor text-void" : "border-line bg-panel text-muted hover:border-phosphor-dim hover:text-phosphor"
                         }`}
                     onClick={() => handleFilterClick("iot")}
                 >
@@ -66,7 +66,7 @@ export default function Proyectos() {
             {/* Cards */}
             <div
                 id="projects-container"
-                className="4xl:px-96 flex flex-wrap justify-center gap-5 px-3 pt-5 xl:px-32 2xl:px-60"
+                className="mx-auto flex max-w-6xl flex-wrap justify-center gap-5 px-5 pt-6 md:px-6"
             >
                 {visibleProjects.map((proyecto) => (
                     <ProjectCard
@@ -88,7 +88,7 @@ export default function Proyectos() {
                 <div className="flex justify-center mt-8">
                     <button
                         onClick={loadMore}
-                        className="px-6 py-2 cursor-pointer border-none bg-[#69c7c7] text-[#1d1250] font-bold rounded-full hover:bg-[#46caca] drop-shadow-[2px_2px_0_#7836cf] active:translate-y-0.5 active:drop-shadow-none transition-all"
+                        className="terminal-button terminal-button--solid cursor-pointer"
                     >
                         Ver más
                     </button>

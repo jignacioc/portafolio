@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaRegCopy } from "react-icons/fa";
 
 export default function EmailCopy() {
@@ -16,13 +16,13 @@ export default function EmailCopy() {
   };
 
   return (
-    <div className="m-6 flex items-center gap-3 ">
-      <h1 className="text-lg font-medium">{email}</h1>
+    <div className="my-7 flex max-w-full flex-col items-center gap-3 sm:flex-row">
+      <p className="break-all font-technical text-sm text-ink">{email}</p>
       <button
         onClick={copyToClipboard}
-        className="flex items-center gap-2 cursor-pointer font-bold rounded-md border-none  px-2 py-1 text-sm bg-primary hover:bg-secondary drop-shadow-[2px_2px_0_#0debd8]"
+        className="terminal-button cursor-pointer gap-2 px-3 py-1.5"
       >
-        <FaRegCopy className="text-gray-300" />
+        <FaRegCopy />
         {copied ? "Copiado!" : "Copiar"}
       </button>
     </div>

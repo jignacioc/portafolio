@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Reveal from "../../commons/Reveal.jsx";
+import SectionHeading from "../../commons/SectionHeading.jsx";
 
 const CategoryIcons = {
   "Arquitectura y Backend": (
@@ -64,23 +66,22 @@ const SkillsList = () => {
   };
 
   return (
-    <div className="flex flex-col items-center px-4 text-left">
-      <div className="mx-auto w-full max-w-4xl">
-        <h2 className="text-white text-center text-4xl font-bold drop-shadow-[2px_2px_0_#7836cf]">
-          Sobre mí y mi trabajo
-        </h2>
-        <ul className="mt-8 space-y-4 text-lg drop-shadow-[2px_2px_0_#7836cf]">
+    <Reveal as="section" className="mx-auto w-full max-w-6xl px-5 pb-4 md:px-6">
+        <SectionHeading>Perfil técnico</SectionHeading>
+        <ul className="mt-8 space-y-3">
           {Object.entries(skills).map(([category, items]) => (
             <li key={category} className="w-full">
-              <div
+              <button
+                type="button"
                 onClick={() => toggleItem(category)}
-                className="bg-gray-900 hover:bg-opacity-80 w-full cursor-pointer overflow-hidden rounded-2xl text-left transition-all"
+                aria-expanded={openItem === category}
+                className="tech-panel w-full cursor-pointer overflow-hidden text-left"
               >
                 <div className="flex items-center gap-3 p-4">
                   {CategoryIcons[category]}
                   <div className="flex grow items-center justify-between gap-2">
                     <div className="max-w-[200px] min-w-0 overflow-hidden md:max-w-none">
-                      <span className="block truncate text-lg text-white drop-shadow-[1px_1px_0_#7836cf] font-bold">
+                      <span className="block truncate font-technical text-sm font-semibold text-ink">
                         {category}
                       </span>
                     </div>
@@ -88,7 +89,7 @@ const SkillsList = () => {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
-                      className={`h-6 w-6 shrink-0 transform text-[#6a2cbb] transition-transform ${
+                      className={`h-5 w-5 shrink-0 transform text-phosphor transition-transform ${
                         openItem === category ? "rotate-180" : ""
                       }`}
                     >
@@ -104,18 +105,15 @@ const SkillsList = () => {
                       : "max-h-0 opacity-0"
                   }`}
                 >
-                  <ul className="list-disc space-y-1.5 pl-5 text-[0.82em] font-medium text-gray-200">
-                    {items.map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                  </ul>
+                  {items.map((text) => (
+                    <p key={text} className="max-w-3xl text-sm leading-6 text-muted">{text}</p>
+                  ))}
                 </div>
-              </div>
+              </button>
             </li>
           ))}
         </ul>
-      </div>
-    </div>
+    </Reveal>
   );
 };
 export default SkillsList;

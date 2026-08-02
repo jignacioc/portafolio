@@ -5,7 +5,7 @@ export default function Slider() {
     const repeatedTechs = [...technologies, ...technologies, ...technologies];
 
     return (
-        <div className="relative overflow-x-hidden px-8 py-8">
+        <div className="relative overflow-x-hidden border-b border-line bg-panel/40 px-8 py-6">
             <div className="animate-scroll hover:animate-paused flex w-max gap-12 md:gap-20">
                 {repeatedTechs.map((tech, index) => (
                     <div
@@ -18,7 +18,7 @@ export default function Slider() {
                             className="h-7 w-7 object-contain transition-transform group-hover:scale-110"
                             loading="lazy"
                         />
-                        <span className="text-lg font-medium text-white">{tech.name}</span>
+                        <span className="font-technical text-xs tracking-wide text-muted transition-colors group-hover:text-phosphor">{tech.name}</span>
                     </div>
                 ))}
             </div>

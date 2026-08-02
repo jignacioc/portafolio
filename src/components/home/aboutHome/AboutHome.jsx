@@ -1,44 +1,38 @@
 import { HiArrowRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import MiFoto from "../../../assets/img/chido.jpeg";
+import Reveal from "../../commons/Reveal.jsx";
+import SectionHeading from "../../commons/SectionHeading.jsx";
 
 export default function AboutHome() {
     return (
-        <section className="relative flex items-center justify-center px-4 pt-16">
-            <div
-                className="absolute inset-0 -z-10 mx-auto max-w-6xl blur-3xl"
-                aria-hidden="true"
-            >
-                <div className="h-[450px] w-full rounded-full bg-[#7836cf]/5"></div>
-            </div>
-
-            <div className="mx-auto flex max-w-4xl flex-col-reverse items-stretch gap-6 md:flex-row">
-                <div className="bg-base-900 border-none flex w-full items-center justify-center overflow-hidden rounded-2xl border p-0 shadow-lg md:w-1/3 drop-shadow-[4px_4px_0_#7836cf]">
+        <Reveal as="section" className="relative mx-auto max-w-6xl px-5 pt-20 md:px-6">
+            <SectionHeading>Sobre mí</SectionHeading>
+            <div className="mt-8 grid items-stretch gap-5 md:grid-cols-[0.65fr_1.35fr]">
+                <div className="tech-panel group min-h-72 overflow-hidden">
                     <img
                         src={MiFoto}
                         alt="Foto de Joaquín Ignacio Clark"
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-cover grayscale-[18%] transition duration-500 group-hover:scale-[1.025] group-hover:grayscale-0"
                     />
                 </div>
 
-                <div className="bg-gray-900 border-none flex w-full flex-col justify-center rounded-2xl border p-6 shadow-lg md:w-2/3 drop-shadow-[4px_4px_0_#7836cf]">
-                    <h2 className="text-white text-4xl font-bold drop-shadow-[2px_2px_0_#7836cf]">
-                        Sobre Mí
-                    </h2>
-                    <p className="mt-2 font-semibold text-white">
-                        Soy Joaquín Ignacio Clark (24), Ingeniero en Informática.
-                        Desarrollador backend enfocado en el modelado de datos, las APIs y
-                        la infraestructura que las ejecuta (Docker, Linux, observabilidad).
-                        En Teknica by Legrand llevo plataformas de telemetría IoT/OT a
-                        producción real, de la base de datos al despliegue y la puesta en
-                        marcha. Perfil versátil y abierto a nuevos dominios.
+                <div className="tech-panel flex flex-col justify-center p-6 md:p-8">
+                    <span className="stack-chip mb-5">PROFILE: BACKEND · INFRA · IT/OT</span>
+                    <h3 className="text-2xl font-semibold text-ink md:text-3xl">
+                        Software sólido, desde la API hasta el despliegue.
+                    </h3>
+                    <p className="mt-4 leading-7 text-muted">
+                        Soy Joaquín Ignacio Clark, Ingeniero en Informática. Diseño sistemas
+                        backend con Django, Celery y PostgreSQL, y construyo la infraestructura
+                        Docker/Linux que los mantiene disponibles, trazables y fáciles de operar.
                     </p>
 
                     <Link
                         to="/about"
-                        className="group mt-4 inline-flex items-center text-primary font-bold transition-all hover:text-[#0debd8]"
+                        className="group mt-6 inline-flex w-fit items-center font-technical text-sm font-semibold text-phosphor transition-colors hover:text-ink"
                     >
-                        Ver más sobre mí
+                        ./ver_perfil
                         <HiArrowRight
                             className="ml-1 transition-transform duration-200 group-hover:translate-x-1"
                             size={18}
@@ -46,6 +40,6 @@ export default function AboutHome() {
                     </Link>
                 </div>
             </div>
-        </section>
+        </Reveal>
     );
 }

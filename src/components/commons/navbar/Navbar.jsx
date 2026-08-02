@@ -33,7 +33,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="relative">
+        <header className="relative font-technical">
             {/* Hover trigger (solo en demo, md+) */}
             {isDemoBms && (
                 <div
@@ -44,27 +44,29 @@ export default function Navbar() {
 
             {/* Navbar */}
             <nav
+                aria-label="Navegación principal"
                 onMouseEnter={() => isDemoBms && setHovered(true)}
                 onMouseLeave={() => isDemoBms && setHovered(false)}
-                className={`fixed top-0 left-0 w-full z-50 border-b border-white/10 transition-transform duration-300 ease-out ${isDemoBms ? "bg-gray-950" : "bg-gray-950/20 backdrop-blur-md"
+                className={`fixed top-0 left-0 w-full z-50 border-b border-line transition-transform duration-300 ease-out ${isDemoBms ? "bg-void" : "bg-void/90 backdrop-blur-md"
                     } ${isCollapsed ? "md:-translate-y-[calc(100%-6px)]" : "translate-y-0"
                     }`}
             >
-                <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5">
                     {/* Logo */}
-                    <Link to="/" className="flex items-center">
-                        <h3 className="text-[#69c7c7] text-3xl font-bold drop-shadow-[1.5px_1.5px_0_#7836cf]">
-                            JIC
+                    <Link to="/" className="flex items-center gap-2" aria-label="JIGNACIOC — Inicio">
+                        <span className="text-phosphor text-xl" aria-hidden="true">&gt;_</span>
+                        <h3 className="text-ink text-lg font-semibold tracking-[0.18em]">
+                            JIGNACIOC
                         </h3>
                     </Link>
 
                     {/* Desktop Links */}
-                    <ul className="hidden md:flex items-center space-x-8">
+                    <ul className="hidden md:flex items-center space-x-7">
                         {links.map((link) => (
                             <li key={link.name}>
                                 <Link
                                     to={link.href}
-                                    className={`font-bold transition-colors duration-300 hover:text-[#7d2dac] ${isActive(link.href) ? "text-[#7d2dac] font-extrabold" : "text-white"
+                                    className={`nav-link text-xs uppercase tracking-[0.12em] transition-colors duration-200 hover:text-phosphor ${isActive(link.href) ? "nav-link--active text-phosphor" : "text-muted"
                                         }`}
                                 >
                                     {link.name}
@@ -81,7 +83,7 @@ export default function Navbar() {
                                 rel="noopener noreferrer"
                                 aria-label="LinkedIn"
                             >
-                                <FaLinkedinIn className="h-7 w-7 cursor-pointer hover:text-[#7836cf] text-white" />
+                                <FaLinkedinIn className="h-5 w-5 cursor-pointer text-muted transition-colors hover:text-phosphor" />
                             </a>
 
                             <a
@@ -90,13 +92,13 @@ export default function Navbar() {
                                 rel="noopener noreferrer"
                                 aria-label="GitHub"
                             >
-                                <FaGithub className="h-7 w-7 cursor-pointer hover:text-[#7836cf] text-white" />
+                                <FaGithub className="h-5 w-5 cursor-pointer text-muted transition-colors hover:text-phosphor" />
                             </a>
                         </li>
                     </ul>
 
                     {/* Mobile right-side icons */}
-                    <div className="flex md:hidden items-center gap-4 z-50">
+                    <div className="z-50 flex items-center gap-4 md:hidden">
                         <NotificationBell />
                         <button
                             onClick={() => setIsOpen(!isOpen)}
@@ -104,9 +106,9 @@ export default function Navbar() {
                             aria-label="Toggle menu"
                         >
                             {isOpen ? (
-                                <FiX className="h-7 w-7 text-white" />
+                                <FiX className="h-7 w-7 text-ink" />
                             ) : (
-                                <FiMenu className="h-7 w-7 text-white" />
+                                <FiMenu className="h-7 w-7 text-ink" />
                             )}
                         </button>
                     </div>
@@ -116,14 +118,14 @@ export default function Navbar() {
             {/* Overlay (mobile only) */}
             {isOpen && (
                 <div
-                    className="fixed inset-0 bg-black/60 cursor-pointer z-40 md:hidden"
+                    className="fixed inset-0 bg-black/70 cursor-pointer z-40 md:hidden"
                     onClick={closeMenu}
                 ></div>
             )}
 
             {/* Sidebar móvil */}
             <div
-                className={`fixed top-0 right-0 h-full w-64 bg-gray-900 shadow-lg transform transition-transform duration-300 z-50 md:translate-x-full md:hidden ${isOpen ? "translate-x-0" : "translate-x-full"
+                className={`fixed top-0 right-0 h-full w-64 border-l border-line bg-panel shadow-2xl transform transition-transform duration-300 z-50 md:translate-x-full md:hidden ${isOpen ? "translate-x-0" : "translate-x-full"
                     }`}
             >
                 <div className="flex justify-end p-4">
@@ -132,7 +134,7 @@ export default function Navbar() {
                         className="cursor-pointer bg-transparent border-none"
                         aria-label="Close menu"
                     >
-                        <FiX className="h-7 w-7 text-white" />
+                        <FiX className="h-7 w-7 text-ink" />
                     </button>
                 </div>
 
@@ -141,7 +143,7 @@ export default function Navbar() {
                         <li key={link.name}>
                             <Link
                                 to={link.href}
-                                className={`text-lg font-bold transition-colors duration-300 hover:text-[#69c7c7] ${isActive(link.href) ? "text-[#7d2dac] font-extrabold" : "text-white"
+                                className={`nav-link text-sm uppercase tracking-[0.12em] transition-colors duration-200 hover:text-phosphor ${isActive(link.href) ? "nav-link--active text-phosphor" : "text-muted"
                                     }`}
                                 onClick={closeMenu}
                             >
@@ -151,6 +153,6 @@ export default function Navbar() {
                     ))}
                 </ul>
             </div>
-        </nav>
+        </header>
     );
 }

@@ -1,5 +1,7 @@
 import MiFoto from "../assets/img/MiFoto.png";
 import CopyMail from "../components/links/copyMail.jsx";
+import Reveal from "../components/commons/Reveal.jsx";
+import SectionHeading from "../components/commons/SectionHeading.jsx";
 
 const links = [
     {
@@ -27,53 +29,57 @@ export default function Contact() {
         `}
             </style>
 
-            <section className="bg-gray-900 flex min-h-screen flex-col items-center justify-center px-6">
-                <div className="mb-2 mt-11">
-                    <div className="mb-2 mt-11">
+            <section className="site-grid relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-5 pb-20 pt-28 md:px-6">
+                <Reveal className="relative z-10 w-full max-w-3xl">
+                    <SectionHeading>Contacto</SectionHeading>
+                    <div className="tech-panel mt-8 flex flex-col items-center px-5 py-12 text-center md:px-10">
                         <div className="relative flex items-center justify-center">
-                            {/* Foto con borde */}
                             <img
                                 src={MiFoto}
                                 alt="Foto de Joaquín Ignacio Clark"
-                                className="border-primary h-32 w-32 rounded-full shadow-lg"
+                                className="h-32 w-32 rounded-full border border-phosphor-dim object-cover grayscale-[15%]"
                             />
 
-                            {/* Texto circular alrededor de la foto */}
                             <svg
                                 viewBox="0 0 200 200"
                                 className="animate-spin-slow absolute h-48 w-48"
+                                aria-hidden="true"
                             >
                                 <path
                                     id="circlePathText"
                                     d="M100,100 m-77,0 a77,77 0 1,1 154,0 a77,77 0 1,1 -154,0"
                                     fill="none"
                                 ></path>
-                                <text fill="#69c7c7" fontSize="18" fontWeight="bold">
+                                <text fill="var(--accent-phosphor)" fontSize="14" fontFamily="JetBrains Mono">
                                     <textPath href="#circlePathText" startOffset="0%">
-                                        ✦ Backend & DevOps ✦ Disponible para sistemas críticos e IoT/OT
+                                        BACKEND · INFRA · SOFTWARE ENGINEERING · LET'S BUILD ·
                                     </textPath>
                                 </text>
                             </svg>
                         </div>
-                    </div>
-                </div>
 
-                <CopyMail />
+                        <h1 className="mt-12 text-3xl font-semibold text-ink md:text-4xl">Hablemos.</h1>
+                        <p className="mt-3 max-w-xl leading-7 text-muted">
+                            Para intercambiar ideas sobre backend e infraestructura, escribime.
+                        </p>
 
-                {/* Lista de Links */}
-                <div className="w-full max-w-xl space-y-4 pt-10">
+                        <CopyMail />
+
+                <div className="grid w-full max-w-xl gap-3 pt-5 sm:grid-cols-3">
                     {links.map((link) => (
                         <a
                             key={link.label}
                             href={link.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block font-bold w-full rounded-lg bg-primary hover:bg-secondary drop-shadow-[2px_2px_0_#0debd8] px-6 py-3 text-center text-white transition "
+                            className="terminal-button w-full"
                         >
-                            {link.label}
+                            ./ {link.label.toLowerCase()}
                         </a>
                     ))}
                 </div>
+                    </div>
+                </Reveal>
             </section>
         </>
     );

@@ -1,77 +1,277 @@
 @import "tailwindcss";
 
-.primary {
-  color: #7836cf;
+@theme {
+  --color-void: #0a0d0a;
+  --color-panel: #12160f;
+  --color-phosphor: #39ff88;
+  --color-phosphor-dim: #1f8f52;
+  --color-ink: #e4ede6;
+  --color-muted: #7c8c82;
+  --color-line: #2a322c;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
-.secondary {
-  color: #512092;
+
+:root {
+  color-scheme: dark;
+  --bg-void: #0a0d0a;
+  --bg-panel: #12160f;
+  --accent-phosphor: #39ff88;
+  --accent-phosphor-dim: #1f8f52;
+  --text-primary: #e4ede6;
+  --text-muted: #7c8c82;
+  --line: #2a322c;
 }
-.bg-primary {
-  background-color: #7836cf;
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg-void);
 }
-.bg-secondary {
-  background-color: #512092;
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    linear-gradient(rgba(57, 255, 136, 0.018) 1px, transparent 1px),
+    var(--bg-void);
+  background-size: 100% 48px;
+  color: var(--text-primary);
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
 }
+
+.portfolio-shell h1,
+.portfolio-shell h2,
+.portfolio-shell h3,
+.portfolio-shell h4,
+.portfolio-shell h5,
+.portfolio-shell h6,
+.portfolio-shell button,
+.font-technical {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+::selection {
+  background: var(--accent-phosphor);
+  color: var(--bg-void);
+}
+
+a,
+button,
+[role="button"] {
+  outline: none;
+}
+
+:where(a, button, [role="button"]):focus-visible {
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px var(--bg-void), 0 0 0 4px var(--accent-phosphor);
+}
+
+.primary,
+.secondary,
 .text-primary {
-  color: #7836cf;
+  color: var(--accent-phosphor);
 }
 
-/* reglas hover (usar estas clases directamente) */
-.hover-text-secondary:hover {
-  color: #7836cf;
+.bg-primary {
+  background-color: var(--accent-phosphor-dim);
 }
-.hover-bg-secondary:hover {
-  background-color: #7836cf;
+
+.bg-secondary {
+  background-color: var(--accent-phosphor);
+  color: var(--bg-void);
 }
-.hover\:bg-secondary:hover {
-  background-color: #512092;
-}
+
+.hover-text-secondary:hover,
 .hover\:text-secondary:hover {
-  color: #512092;
+  color: var(--accent-phosphor);
 }
 
-.text-shadow {
-  text-shadow: 2px 2px 0 #620deb;
+.hover-bg-secondary:hover,
+.hover\:bg-secondary:hover {
+  background-color: var(--accent-phosphor);
+  color: var(--bg-void);
 }
 
-.text-shadow-cyan {
-  text-shadow: 2px 2px 0 #0debd8;
+.site-grid {
+  background-color: var(--bg-void);
+  background-image:
+    linear-gradient(rgba(57, 255, 136, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57, 255, 136, 0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
-/* estilos del home */
+.site-grid::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 42%, transparent 0, rgba(10, 13, 10, 0.22) 48%, var(--bg-void) 86%);
+}
 
-@keyframes gradientMove {
-  0% {
-    transform: translateX(0) translateY(0);
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  color: var(--accent-phosphor);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-heading::after {
+  flex: 1;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, var(--accent-phosphor-dim), var(--line) 45%, transparent);
+}
+
+.nav-link {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .nav-link::after {
+    position: absolute;
+    right: 0;
+    bottom: -0.7rem;
+    left: 0;
+    height: 1px;
+    content: "";
+    transform: scaleX(0);
+    transform-origin: right;
+    background: var(--accent-phosphor);
+    transition: transform 180ms ease;
   }
+
+  .nav-link:hover::after,
+  .nav-link--active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.tech-panel {
+  --corner-color: var(--accent-phosphor-dim);
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background-color: color-mix(in srgb, var(--bg-panel) 94%, transparent);
+  transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.tech-panel::after {
+  position: absolute;
+  inset: -1px;
+  z-index: 2;
+  content: "";
+  pointer-events: none;
+  background:
+    linear-gradient(var(--corner-color), var(--corner-color)) left top / 18px 2px no-repeat,
+    linear-gradient(var(--corner-color), var(--corner-color)) left top / 2px 18px no-repeat,
+    linear-gradient(var(--corner-color), var(--corner-color)) right top / 18px 2px no-repeat,
+    linear-gradient(var(--corner-color), var(--corner-color)) right top / 2px 18px no-repeat,
+    linear-gradient(var(--corner-color), var(--corner-color)) left bottom / 18px 2px no-repeat,
+    linear-gradient(var(--corner-color), var(--corner-color)) left bottom / 2px 18px no-repeat,
+    linear-gradient(var(--corner-color), var(--corner-color)) right bottom / 18px 2px no-repeat,
+    linear-gradient(var(--corner-color), var(--corner-color)) right bottom / 2px 18px no-repeat;
+  transition: background 180ms ease;
+}
+
+.tech-panel:hover,
+.tech-panel:focus-within {
+  --corner-color: var(--accent-phosphor);
+  border-color: var(--accent-phosphor-dim);
+  background-color: color-mix(in srgb, var(--bg-panel) 97%, var(--accent-phosphor) 3%);
+}
+
+.stack-chip {
+  width: fit-content;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 0.25rem 0.5rem;
+  background: rgba(57, 255, 136, 0.04);
+  color: var(--accent-phosphor);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+}
+
+.terminal-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--accent-phosphor-dim);
+  border-radius: 2px;
+  padding: 0.7rem 1rem;
+  background: rgba(57, 255, 136, 0.06);
+  color: var(--accent-phosphor);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  box-shadow: 0 0 0 0 rgba(57, 255, 136, 0);
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.terminal-button:hover {
+  border-color: var(--accent-phosphor);
+  background: var(--accent-phosphor);
+  color: var(--bg-void);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -10px rgba(57, 255, 136, 0.9);
+}
+
+.terminal-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.terminal-button--solid {
+  background: var(--accent-phosphor);
+  color: var(--bg-void);
+}
+
+.terminal-button--solid:hover {
+  background: #70ffa8;
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  margin-left: 0.35rem;
+  vertical-align: -0.15em;
+  background: var(--accent-phosphor);
+  animation: cursor-blink 1s steps(1) infinite;
+}
+
+.Typewriter,
+.Typewriter__wrapper {
+  display: inline;
+}
+
+@keyframes cursor-blink {
   50% {
-    transform: translateX(-250px) translateY(120px);
-  }
-  100% {
-    transform: translateX(0) translateY(0);
+    opacity: 0;
   }
 }
 
-@keyframes gradientMove2 {
-  0% {
-    transform: translateX(0) translateY(0);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  50% {
-    transform: translateX(250px) translateY(-120px);
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-  100% {
-    transform: translateX(0) translateY(0);
-  }
-}
-
-.animate-gradientMove {
-  animation: gradientMove 8s ease-in-out infinite alternate;
-}
-
-.animate-gradientMove2 {
-  animation: gradientMove2 8s ease-in-out infinite alternate;
-}
-
-.text-shadow {
-  text-shadow: 2px 2px 0 #6d0deb;
 }

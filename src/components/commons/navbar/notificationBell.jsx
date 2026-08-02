@@ -1,44 +1,40 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaBell } from "react-icons/fa";
 
+const BASE_NOTIFICATIONS = [
+  { id: 1, text: "Nuevo proyecto publicado", read: false },
+  {
+    id: 2,
+    text: "¡Hola! Recientemente subí un nuevo post en LinkedIn. Échale un ojo.",
+    read: false,
+  },
+];
+
 export default function NotificationBell() {
   const [open, setOpen] = useState(false);
   const [notifications, setNotifications] = useState([]);
   const containerRef = useRef(null);
 
-  // Notificaciones
-  const baseNotifications = [
-    { id: 1, text: "Nuevo proyecto publicado 🚀", read: false },
-    {
-      id: 2,
-      text: "¡Hola! Como estás? Recientemente subí un nuevo post en linkedin! Hechale un ojo ;)",
-      read: false,
-    },
-  ];
-
-  // Obtener el id
-  const lastBaseId =
-    baseNotifications.length > 0
-      ? baseNotifications[baseNotifications.length - 1].id
-      : null;
-
-  // Obtener el id del último elemento no leído
-  const lastUnreadId =
-    notifications.length > 0
-      ? [...notifications].reverse().find((n) => !n.read)?.id
-      : null;
-
   // Cargar desde localStorage y mezclar con base
   useEffect(() => {
-    const saved = localStorage.getItem("notifications");
-    let merged = baseNotifications;
+    try {
+      const saved = localStorage.getItem("notifications");
+      if (!saved) {
+        setNotifications(BASE_NOTIFICATIONS);
+        return;
+      }
 
-    if (saved) {
       const savedArray = JSON.parse(saved);
+      if (!Array.isArray(savedArray)) {
+        setNotifications(BASE_NOTIFICATIONS);
+        return;
+      }
+
       const savedMap = new Map(savedArray.map((n) => [n.id, n]));
-      merged = baseNotifications.map((n) => savedMap.get(n.id) || n);
+      setNotifications(BASE_NOTIFICATIONS.map((n) => savedMap.get(n.id) || n));
+    } catch {
+      setNotifications(BASE_NOTIFICATIONS);
     }
-    setNotifications(merged);
   }, []);
 
   // localStorage
@@ -48,9 +44,7 @@ export default function NotificationBell() {
     }
   }, [notifications]);
 
-  const unread = notifications.filter((n) => !n.read);
-  const read = notifications.filter((n) => n.read);
-  const unreadCount = unread.length;
+  const unreadCount = notifications.filter((n) => !n.read).length;
 
   // Cerrar dropdown
   useEffect(() => {
@@ -59,8 +53,17 @@ export default function NotificationBell() {
         setOpen(false);
       }
     }
-    document.addEventListener("click", handleDocClick);
-    return () => document.removeEventListener("click", handleDocClick);
+
+    function handleKeyDown(e) {
+      if (e.key === "Escape") setOpen(false);
+    }
+
+    document.addEventListener("pointerdown", handleDocClick);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", handleDocClick);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   // Marca como leidas
@@ -71,41 +74,41 @@ export default function NotificationBell() {
   }, [open]);
 
   return (
-    <div ref={containerRef} className="relative">
+    <div ref={containerRef} className="relative shrink-0">
       <button
         type="button"
         aria-expanded={open}
         aria-label="Notificaciones"
         onClick={() => setOpen((v) => !v)}
-        className="relative rounded-full p-2 hover:bg-gray-700"
+        className="relative flex h-9 w-9 cursor-pointer items-center justify-center rounded-sm border-none bg-transparent hover:bg-panel"
       >
-        <FaBell className="text-2xl text-white cursor-pointer" />
-        {unreadCount > 0 && lastBaseId && (
-          <span className="absolute top-0 right-0 inline-flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-xs text-white">
-            {lastBaseId}
+        <FaBell className="text-lg text-muted transition-colors hover:text-phosphor" />
+        {unreadCount > 0 && (
+          <span className="absolute right-0 top-0 inline-flex h-4 min-w-4 items-center justify-center bg-phosphor px-1 font-technical text-[0.6rem] text-void">
+            {unreadCount > 9 ? "9+" : unreadCount}
           </span>
         )}
       </button>
 
       {open && (
-        <div className="absolute right-0 z-50 mt-2 w-70 max-w-sm rounded-lg border-none bg-gray-900 shadow-lg drop-shadow-[4px_4px_0_#7836cf]">
+        <div className="tech-panel !absolute right-0 top-full z-[70] mt-2 w-[min(20rem,calc(100vw-2.5rem))] bg-panel shadow-xl">
           <div className="p-3">
             <div className="mb-2 flex items-center justify-between">
-              <h4 className="text-xm font-bold text-gray-200 drop-shadow-[1px_1px_0_#7836cf]">
-                Notificaciones
+              <h4 className="font-technical text-xs font-semibold text-phosphor">
+                &gt;&gt; NOTIFICACIONES
               </h4>
             </div>
 
-            {read.length > 0 ? (
-              <ul className="max-h-48 divide-y divide-gray-800 overflow-auto">
-                {read.map((n) => (
-                  <li key={n.id} className="py-2 text-sm text-gray-400">
+            {notifications.length > 0 ? (
+              <ul className="max-h-[min(18rem,calc(100vh-8rem))] divide-y divide-line overflow-y-auto">
+                {notifications.map((n) => (
+                  <li key={n.id} className="break-words py-2 text-sm leading-6 text-muted">
                     {n.text}
                   </li>
                 ))}
               </ul>
             ) : (
-              <p className="text-sm text-gray-400">No hay notificaciones.</p>
+              <p className="text-sm text-muted">No hay notificaciones.</p>
             )}
           </div>
         </div>

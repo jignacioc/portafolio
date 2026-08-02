@@ -1,16 +1,16 @@
+import Reveal from "../Reveal.jsx";
+
 export default function Hero({ titulo }) {
     return (
-        <section
-            className="relative text-white py-24 mt-[72px] overflow-hidden
-      bg-[linear-gradient(#ffffff33_1px,transparent_1px),linear-gradient(90deg,#ffffff33_1px,transparent_1px)]
-      bg-size-[25px_25px] bg-[#15052c]
-      mask-[linear-gradient(to_bottom,black,black,transparent)]"
-        >
-            <div className="max-w-6xl mx-auto px-6 text-center relative">
-                <h1 className="text-4xl md:text-6xl font-extrabold mb-4 tracking-wide drop-shadow-lg text-shadow-cyan">
+        <section className="site-grid relative mt-[60px] overflow-hidden border-b border-line py-20 text-ink md:py-24">
+            <Reveal className="relative z-10 mx-auto max-w-6xl px-6">
+                <p className="mb-4 font-technical text-xs tracking-[0.16em] text-phosphor-dim">
+                    ./portfolio/{titulo.toLowerCase().replaceAll(" ", "-")}
+                </p>
+                <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">
                     {titulo}
                 </h1>
-            </div>
+            </Reveal>
         </section>
     );
 }

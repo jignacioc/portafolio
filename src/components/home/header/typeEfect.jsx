@@ -1,23 +1,31 @@
-import React from "react";
 import Typewriter from "typewriter-effect";
+import { useReducedMotion } from "framer-motion";
 
 const TypewriterComponent = () => {
+  const reduceMotion = useReducedMotion();
+  const strings = [
+    "Backend: Django · Celery · PostgreSQL",
+    "Infra: Docker · Nginx · Linux",
+    "IoT/OT: Modbus · SNMP · KNX",
+  ];
+
+  if (reduceMotion) {
+    return <span>{strings[0]}</span>;
+  }
+
   return (
-    <div className="notranslate mt-5 text-3xl font-bold">
+    <span className="notranslate">
       <Typewriter
         options={{
-          strings: [
-            "Backend",
-            "DevOps",
-            "Arquitectura distribuida",
-            "Sistemas IoT/OT",
-            "Entornos offline",
-          ],
+          strings,
           autoStart: true,
           loop: true,
+          delay: 42,
+          deleteSpeed: 24,
+          cursor: "",
         }}
       />
-    </div>
+    </span>
   );
 };
 

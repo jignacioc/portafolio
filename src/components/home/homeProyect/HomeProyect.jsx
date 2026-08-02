@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import HomeProjectCard from "./HomeProyectCard.jsx";
 import { proyectos } from "../../../data/projetsAboutData.js";
+import Reveal from "../../commons/Reveal.jsx";
+import SectionHeading from "../../commons/SectionHeading.jsx";
 
 export default function HomeProyect() {
     return (
-        <section className="py-10 relative z-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-12 mx-auto px-6 text-center text-shadow">
-                Proyectos Destacados
-            </h2>
+        <Reveal as="section" className="relative z-10 mx-auto max-w-6xl px-5 py-20 md:px-6">
+            <SectionHeading>Proyectos</SectionHeading>
 
-            <div className="mt-8 grid gap-6 md:grid-cols-2 max-w-[930px] mx-auto px-4">
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
                 {proyectos.map((p) => (
                     <HomeProjectCard key={p.titulo} {...p} />
                 ))}
@@ -18,11 +18,11 @@ export default function HomeProyect() {
             <div className="mt-12 flex justify-center">
                 <Link
                     to="/proyectos"
-                    className="px-6 py-3 bg-primary hover:bg-secondary text-white font-semibold rounded-3xl transition-all duration-150 drop-shadow-[2px_2px_0_#0debd8] active:translate-0.5 active:drop-shadow-none"
+                    className="terminal-button"
                 >
-                    Ver todos los proyectos
+                    $ listar_todos
                 </Link>
             </div>
-        </section>
+        </Reveal>
     );
 }

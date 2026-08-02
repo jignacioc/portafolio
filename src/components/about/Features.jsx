@@ -1,13 +1,12 @@
 import ServiceCard from "./ServiceCard.jsx";
 import { FaLaptopCode, FaBolt, FaRocket } from "react-icons/fa";
+import Reveal from "../commons/Reveal.jsx";
+import SectionHeading from "../commons/SectionHeading.jsx";
 
 export default function Features() {
     return (
-        <section className="site-container mt-14 mx-auto max-w-6xl px-4">
-            <h2 className="text-4xl font-bold flex flex-col items-center gap-6 text-center whitespace-nowrap text-white md:flex-row md:items-center md:text-end">
-                <span className="hidden h-1.5 grow rounded-lg drop-shadow-[2px_2px_0_#0debd8] bg-[#7836cf] md:block"></span>
-                <span className="drop-shadow-[2px_2px_0_#7836cf]">Servicios</span>
-            </h2>
+        <Reveal as="section" className="mt-20 mx-auto max-w-6xl px-5 md:px-6">
+            <SectionHeading>Servicios</SectionHeading>
 
             <div className="mt-10 grid gap-6 md:grid-cols-3">
                 <ServiceCard
@@ -27,6 +26,6 @@ export default function Features() {
                     description="Dashboards y alertas con Prometheus, Grafana y Alertmanager; CI/CD ligero, Nginx reverse proxy y hardening en Linux para operaciones seguras."
                 />
             </div>
-        </section>
+        </Reveal>
     );
 }

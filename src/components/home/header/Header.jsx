@@ -1,40 +1,66 @@
 import SocialIcons from "../../commons/socialIcons/socialIcons.jsx";
 import TypeEfect from "./typeEfect.jsx";
+import Typewriter from "typewriter-effect";
+import { motion, useReducedMotion } from "framer-motion";
+
+const cvUrl = `${import.meta.env.BASE_URL}CV_Joaquin_Clark.pdf`;
 
 export default function Header() {
+    const reduceMotion = useReducedMotion();
+
     return (
-        <header className="relative h-screen bg-gray-950 overflow-hidden">
-            <div className="absolute inset-0 grid grid-cols-2">
-                <div className="animate-gradientMove h-80 bg-linear-to-br from-[#982cf0] to-[#581f86] opacity-30 blur-[120px]"></div>
-                <div className="animate-gradientMove2 h-80 bg-linear-to-br from-[#277752] to-[#02ffee] opacity-30 blur-[120px]"></div>
-            </div>
+        <header className="site-grid relative flex min-h-[760px] items-center overflow-hidden border-b border-line bg-void pt-16 md:min-h-screen">
+            <main className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-start px-6 py-20 text-left md:px-10">
+                <div className="notranslate mb-6 min-h-6 font-technical text-sm text-phosphor">
+                    {reduceMotion ? (
+                        "$ whoami"
+                    ) : (
+                        <Typewriter
+                            options={{
+                                strings: ["$ whoami"],
+                                autoStart: true,
+                                delay: 70,
+                                cursor: "_",
+                            }}
+                        />
+                    )}
+                </div>
 
-            <main className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-                <h1 className="text-4xl md:text-7xl font-bold text-white text-shadow mt-10">
-                    Hola, soy Joaquín Ignacio Clark
-                </h1>
+                <motion.h1
+                    className="max-w-5xl text-4xl font-semibold leading-[1.08] tracking-[-0.045em] text-ink md:text-7xl"
+                    initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: reduceMotion ? 0 : 0.5, duration: 0.45 }}
+                >
+                    Hola, soy <span className="text-phosphor">Joaquín Ignacio Clark</span>
+                </motion.h1>
 
-                <TypeEfect />
-
-                <p className="text-xs md:text-xl text-white max-w-sm md:max-w-xl font-semibold mt-3">
-                    Ingeniero en Informática y Computación (2024). Me especializo en
-                    desarrollo <strong>backend</strong> y en la infraestructura que lo
-                    ejecuta y despliega —contenerización, orquestación de servicios, redes
-                    y observabilidad—, con experiencia real llevando software crítico de
-                    telemetría a producción. Perfil técnico versátil y abierto a nuevos
-                    dominios.
+                <p className="mt-5 font-technical text-sm tracking-wide text-muted md:text-base">
+                    Ingeniero en Informática · Backend &amp; Infraestructura
                 </p>
 
-                <SocialIcons />
+                <div className="mt-8 flex min-h-8 items-center border-l border-phosphor-dim pl-4 font-technical text-sm text-ink md:text-base">
+                    <span className="mr-2 text-phosphor" aria-hidden="true">&gt;</span>
+                    <TypeEfect />
+                    <span className="terminal-cursor" aria-hidden="true"></span>
+                </div>
+
+                <p className="mt-8 max-w-2xl text-base leading-7 text-muted md:text-lg">
+                    Diseño backends robustos y la infraestructura que los sostiene. Trabajo
+                    con Django, Docker, Celery y PostgreSQL, conectando software, datos y
+                    sistemas industriales cuando el proyecto lo requiere.
+                </p>
+
+                <div className="mt-4">
+                    <SocialIcons />
+                </div>
 
                 <a
-                    href={`${import.meta.env.BASE_URL}CV_Joaquin_Clark.pdf`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    download
-                    className="px-6 py-3 bg-primary hover:bg-secondary mt-3 text-white font-semibold rounded-3xl transition-all duration-150 drop-shadow-[2px_2px_0_#0debd8] active:translate-0.5 active:drop-shadow-none"
+                    href={cvUrl}
+                    download="CV_Joaquin_Clark.pdf"
+                    className="terminal-button mt-1"
                 >
-                    Descargar CV
+                    $ descargar_cv
                 </a>
             </main>
         </header>

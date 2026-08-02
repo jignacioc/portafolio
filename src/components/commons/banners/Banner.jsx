@@ -1,33 +1,36 @@
 import { Link } from "react-router-dom";
+import Reveal from "../Reveal.jsx";
+import SectionHeading from "../SectionHeading.jsx";
+
+const cvUrl = `${import.meta.env.BASE_URL}CV_Joaquin_Clark.pdf`;
 
 export default function Banner() {
     return (
-        <section className="pt-16">
-            <div className="bg-gray-900 py-24 text-center text-white">
-                <h2 className="mb-4 text-4xl font-bold drop-shadow-[2px_2px_0_#7836cf]">
-                    ¿Trabajamos juntos?
+        <Reveal as="section" className="mx-auto max-w-6xl px-5 py-20 md:px-6">
+            <SectionHeading>Contacto</SectionHeading>
+            <div className="tech-panel mt-8 px-6 py-14 text-center md:px-10">
+                <h2 className="mb-4 text-3xl font-semibold text-ink md:text-4xl">
+                    Mantengamos el contacto.
                 </h2>
-                <p className="mb-6 text-lg text-neutral-300 font-semibold">
-                    Estoy disponible para nuevas oportunidades. ¡Hablemos!
+                <p className="mb-7 text-lg text-muted">
+                    Encuéntrame en LinkedIn, GitHub o por correo.
                 </p>
                 <div className="flex justify-center gap-4">
                     <Link
                         to="/contact"
-                        className="rounded-lg bg-primary hover:bg-secondary drop-shadow-[2px_2px_0_#0debd8] px-6 py-3 text-lg font-semibold text-white transition active:translate-0.5 active:drop-shadow-none"
+                        className="terminal-button terminal-button--solid"
                     >
-                        Contáctame
+                        $ contactar
                     </Link>
                     <a
-                        href={`${import.meta.env.BASE_URL}CV_Joaquin_Clark.pdf`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        download
-                        className="rounded-lg bg-primary hover:bg-secondary drop-shadow-[2px_2px_0_#0debd8] px-6 py-3 text-lg font-semibold text-white transition active:translate-0.5 active:drop-shadow-none"
+                        href={cvUrl}
+                        download="CV_Joaquin_Clark.pdf"
+                        className="terminal-button"
                     >
-                        Curriculum
+                        $ descargar_cv
                     </a>
                 </div>
             </div>
-        </section>
+        </Reveal>
     );
 }

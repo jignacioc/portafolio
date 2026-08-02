@@ -7,7 +7,7 @@ const SocialIcons = () => {
         href="https://www.linkedin.com/in/joaquin-clark/"
         target="_blank"
         rel="noopener noreferrer"
-        className="mr-3 text-zinc-400 hover:text-[#69c7c7] drop-shadow-[1px_1px_0_#7836cf]"
+        className="mr-3 text-muted transition-colors hover:text-phosphor"
         aria-label="Linkedin"
       >
         <FaLinkedinIn className="h-7 w-7" />
@@ -17,7 +17,7 @@ const SocialIcons = () => {
         href="https://github.com/jignacioc"
         target="_blank"
         rel="noopener noreferrer"
-        className="mx-3 text-zinc-400 hover:text-[#69c7c7] drop-shadow-[1px_1px_0_#7836cf]"
+        className="mx-3 text-muted transition-colors hover:text-phosphor"
         aria-label="Github"
       >
         <FaGithub className="h-7 w-7" />
