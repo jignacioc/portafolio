@@ -18,14 +18,15 @@ export default function AboutHome() {
                 </div>
 
                 <div className="tech-panel flex flex-col justify-center p-6 md:p-8">
-                    <span className="stack-chip mb-5">PROFILE: BACKEND · INFRA · IT/OT</span>
+                    <span className="stack-chip mb-5">PROFILE: BACKEND · DEVOPS · IT/OT</span>
                     <h3 className="text-2xl font-semibold text-ink md:text-3xl">
-                        Software sólido, desde la API hasta el despliegue.
+                        Tecnología aplicada, de la idea a la operación.
                     </h3>
                     <p className="mt-4 leading-7 text-muted">
-                        Soy Joaquín Ignacio Clark, Ingeniero en Informática. Diseño sistemas
-                        backend con Django, Celery y PostgreSQL, y construyo la infraestructura
-                        Docker/Linux que los mantiene disponibles, trazables y fáciles de operar.
+                        Soy Joaquín Ignacio Clark, Ingeniero en Informática. Tengo experiencia
+                        diseñando y construyendo soluciones tecnológicas que conectan software,
+                        datos, infraestructura y sistemas reales. Me motiva enfrentar problemas
+                        nuevos, aprender rápido y convertir ideas complejas en resultados útiles.
                     </p>
 
                     <Link
