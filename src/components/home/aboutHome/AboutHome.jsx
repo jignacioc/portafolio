@@ -18,7 +18,7 @@ export default function AboutHome() {
                 </div>
 
                 <div className="tech-panel flex flex-col justify-center p-6 md:p-8">
-                    <span className="stack-chip mb-5">PROFILE: BACKEND · DEVOPS · IT/OT</span>
+                    <span className="stack-chip mb-5">PROFILE: SOFTWARE ENGINEER · BACKEND · NETWORKING</span>
                     <h3 className="text-2xl font-semibold text-ink md:text-3xl">
                         Tecnología aplicada, de la idea a la operación.
                     </h3>

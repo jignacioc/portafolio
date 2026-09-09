@@ -71,30 +71,34 @@ function TempBar({ colors = MIXED_BARS }) {
 }
 
 function PotenciasCard() {
+    const fanExterior = useOscillatingValue(4, 4, 90, 0.3, 0);
+    const fanInterior = useOscillatingValue(97, 3, 100, 0.3, 0);
     return (
         <div className="border border-gray-200 rounded bg-white p-4">
             <p className="text-xs text-gray-400 mb-3">Potencias AUX / EVP Fan</p>
             <div className="flex justify-around items-center py-2">
-                <SemiGauge value={0} label="Fan exterior" />
-                <SemiGauge value={100} label="Fan interior" />
+                <SemiGauge value={fanExterior} label="Fan exterior" />
+                <SemiGauge value={fanInterior} label="Fan interior" />
             </div>
         </div>
     );
 }
 
 function PresionesCard() {
+    const presionHP = useOscillatingValue(2.5, 0.15, 110, 0.01, 2);
+    const presionLP = useOscillatingValue(2.4, 0.15, 125, 0.01, 2);
     return (
         <div className="border border-gray-200 rounded bg-white p-4 flex flex-col">
             <p className="text-xs text-gray-400 mb-4">Presiones HP / LP</p>
             <div className="flex justify-around items-center flex-1">
                 <div className="text-center">
                     <p className="text-sm font-medium text-gray-700">Presión HP</p>
-                    <p className="text-4xl font-bold text-green-600 leading-tight">2.50</p>
+                    <p className="text-4xl font-bold text-green-600 leading-tight">{presionHP.toFixed(2)}</p>
                     <p className="text-sm text-gray-400">bar</p>
                 </div>
                 <div className="text-center">
                     <p className="text-sm font-medium text-gray-700">Presión LP</p>
-                    <p className="text-4xl font-bold text-green-600 leading-tight">2.40</p>
+                    <p className="text-4xl font-bold text-green-600 leading-tight">{presionLP.toFixed(2)}</p>
                     <p className="text-sm text-gray-400">bar</p>
                 </div>
             </div>
@@ -104,6 +108,7 @@ function PresionesCard() {
 
 function HumedadCard() {
     const colors = ["#f97316", "#22c55e", "#3b82f6", "#f43f5e", "#a3e635", "#60a5fa", "#fb923c", "#4ade80"];
+    const humedad = useOscillatingValue(80, 4, 100, 0.08, 1);
     return (
         <div className="border border-gray-200 rounded bg-white p-4">
             <p className="text-xs text-gray-400 mb-2">Humedad</p>
@@ -112,34 +117,34 @@ function HumedadCard() {
                     <ColorBarChart colors={colors} height={130} />
                 </div>
                 <span className="text-sm font-semibold text-green-500 ml-3 pb-2 whitespace-nowrap">
-                    80.0 %H
+                    {humedad.toFixed(1)} %H
                 </span>
             </div>
         </div>
     );
 }
 
-function useOscillatingTemp(base, delta, interval = 80) {
-    const [temp, setTemp] = useState(base);
+function useOscillatingValue(base, delta, interval = 80, step = 0.05, decimals = 1) {
+    const [value, setValue] = useState(base);
     const dirRef = useRef(1);
-    const tempRef = useRef(base);
+    const valueRef = useRef(base);
 
     useEffect(() => {
         const id = setInterval(() => {
-            tempRef.current = tempRef.current + dirRef.current * 0.05;
-            if (tempRef.current >= base + delta) dirRef.current = -1;
-            if (tempRef.current <= base - delta) dirRef.current = 1;
-            setTemp(parseFloat(tempRef.current.toFixed(1)));
+            valueRef.current = valueRef.current + dirRef.current * step;
+            if (valueRef.current >= base + delta) dirRef.current = -1;
+            if (valueRef.current <= base - delta) dirRef.current = 1;
+            setValue(parseFloat(valueRef.current.toFixed(decimals)));
         }, interval);
         return () => clearInterval(id);
-    }, [base, delta, interval]);
+    }, [base, delta, interval, step, decimals]);
 
-    return temp;
+    return value;
 }
 
 function TempHLPCard() {
-    const tempHP = useOscillatingTemp(-11.1, 3, 80);
-    const tempLP = useOscillatingTemp(-11.6, 3, 95);
+    const tempHP = useOscillatingValue(-11.1, 3, 80);
+    const tempLP = useOscillatingValue(-11.6, 3, 95);
 
     const color = (v) => v > -11 ? "text-green-500" : v > -13 ? "text-blue-500" : "text-blue-700";
 
@@ -184,6 +189,8 @@ function SetpointCard() {
 }
 
 function TempInteriorCard() {
+    const tempExterior = useOscillatingValue(24, 1.5, 130, 0.05, 1);
+    const tempInterior = useOscillatingValue(13.7, 1, 115, 0.05, 1);
     return (
         <div className="border border-gray-200 rounded bg-white p-4">
             <p className="text-xs text-gray-400 mb-3">Temperatura Interior</p>
@@ -191,14 +198,14 @@ function TempInteriorCard() {
                 <p className="text-base font-bold text-gray-800 mb-1">Temperatura exterior</p>
                 <div className="flex items-center justify-between">
                     <TempBar />
-                    <span className="text-sm font-semibold text-green-500 ml-3">24.0 <span className="text-xs">°C</span></span>
+                    <span className="text-sm font-semibold text-green-500 ml-3">{tempExterior.toFixed(1)} <span className="text-xs">°C</span></span>
                 </div>
             </div>
             <div>
                 <p className="text-base font-bold text-gray-800 mb-1">Temperatura interior</p>
                 <div className="flex items-center justify-between">
                     <TempBar />
-                    <span className="text-sm font-semibold text-blue-400 ml-3">13.7 <span className="text-xs">°C</span></span>
+                    <span className="text-sm font-semibold text-blue-400 ml-3">{tempInterior.toFixed(1)} <span className="text-xs">°C</span></span>
                 </div>
             </div>
         </div>

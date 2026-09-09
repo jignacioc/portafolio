@@ -54,7 +54,7 @@ export default function HomeProjectCard({ titulo, slug, imagen, tecnologias, dem
                             onClick={() => setShowPrivateModal(true)}
                             className="terminal-button w-full cursor-pointer py-2"
                         >
-                            Código
+                            Proyecto privado
                         </button>
                     ) : (
                         <a

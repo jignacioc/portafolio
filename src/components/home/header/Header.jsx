@@ -36,7 +36,7 @@ export default function Header() {
                 </motion.h1>
 
                 <p className="mt-5 font-technical text-sm tracking-wide text-muted md:text-base">
-                    Ingeniero en Informática · Backend &amp; Infraestructura
+                    Ingeniero de Software · Backend, Redes &amp; Linux
                 </p>
 
                 <div className="mt-8 flex min-h-8 items-center border-l border-phosphor-dim pl-4 font-technical text-sm text-ink md:text-base">
@@ -46,9 +46,9 @@ export default function Header() {
                 </div>
 
                 <p className="mt-8 max-w-2xl text-base leading-7 text-muted md:text-lg">
-                    Diseño backends robustos y la infraestructura que los sostiene. Trabajo
-                    con Django, Docker, Celery y PostgreSQL, conectando software, datos y
-                    sistemas industriales cuando el proyecto lo requiere.
+                    Fuerte experiencia en desarrollo backend con Python (Django) y bases de
+                    datos relacionales (SQL), con una base sólida en redes y sistemas Linux
+                    y capacidad de adaptación a cualquier tipo de proyecto.
                 </p>
 
                 <div className="mt-4">

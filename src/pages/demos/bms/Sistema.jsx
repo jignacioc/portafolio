@@ -1,4 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+
+function useOscillatingValue(base, delta, interval = 1000, step = 0.05, decimals = 2) {
+    const [value, setValue] = useState(base);
+    const dirRef = useRef(1);
+    const valueRef = useRef(base);
+
+    useEffect(() => {
+        const id = setInterval(() => {
+            valueRef.current = valueRef.current + dirRef.current * step;
+            if (valueRef.current >= base + delta) dirRef.current = -1;
+            if (valueRef.current <= base - delta) dirRef.current = 1;
+            setValue(parseFloat(valueRef.current.toFixed(decimals)));
+        }, interval);
+        return () => clearInterval(id);
+    }, [base, delta, interval, step, decimals]);
+
+    return value;
+}
 import {
     ChartIcon,
     DiskIcon,
@@ -128,6 +146,20 @@ function FilesystemChart() {
 }
 
 export default function Sistema() {
+    const discoTotal = 468.39;
+    const discoUsado = useOscillatingValue(312.81, 0.6, 4000, 0.03, 2);
+    const discoReservado = useOscillatingValue(0.04, 0.02, 3500, 0.005, 3);
+    const discoLibre = discoTotal - discoUsado - discoReservado;
+
+    const ramTotal = 14.99;
+    const ramUsado = useOscillatingValue(7.84, 1.2, 900, 0.03, 2);
+    const ramReservado = useOscillatingValue(2.68, 0.5, 1100, 0.02, 2);
+    const ramLibre = ramTotal - ramUsado - ramReservado;
+
+    const cpuUsado = useOscillatingValue(7.6, 4, 300, 0.3, 1);
+    const cpuReservado = useOscillatingValue(5.7, 2, 350, 0.2, 1);
+    const cpuLibre = 100 - cpuUsado - cpuReservado;
+
     return (
         <main className="px-6 py-6 bg-gray-50">
             <CollapsibleSection icon={ChartIcon} title="Salud del Sistema" defaultOpen>
@@ -136,45 +168,45 @@ export default function Sistema() {
                         icon={DiskIcon}
                         title="Disco"
                         donutSegments={[
-                            { value: 312.81, color: "#3f5751" },
-                            { value: 0.04, color: "#dc2626" },
-                            { value: 155.54, color: "#0d9488" },
+                            { value: discoUsado, color: "#3f5751" },
+                            { value: discoReservado, color: "#dc2626" },
+                            { value: discoLibre, color: "#0d9488" },
                         ]}
-                        total="468.39 GB"
+                        total={`${discoTotal.toFixed(2)} GB`}
                         items={[
-                            { label: "Usado", value: "312.81 GB", color: "#3f5751" },
-                            { label: "<Generico>", value: "0.04 GB", color: "#dc2626" },
-                            { label: "Libre", value: "155.54 GB", color: "#0d9488" },
+                            { label: "Usado", value: `${discoUsado.toFixed(2)} GB`, color: "#3f5751" },
+                            { label: "Reservado", value: `${discoReservado.toFixed(3)} GB`, color: "#dc2626" },
+                            { label: "Libre", value: `${discoLibre.toFixed(2)} GB`, color: "#0d9488" },
                         ]}
                     />
                     <MetricCard
                         icon={CpuIcon}
                         title="Memoria RAM"
                         donutSegments={[
-                            { value: 7.84, color: "#3f5751" },
-                            { value: 2.68, color: "#dc2626" },
-                            { value: 4.47, color: "#0d9488" },
+                            { value: ramUsado, color: "#3f5751" },
+                            { value: ramReservado, color: "#dc2626" },
+                            { value: ramLibre, color: "#0d9488" },
                         ]}
-                        total="14.99 GB"
+                        total={`${ramTotal.toFixed(2)} GB`}
                         items={[
-                            { label: "Usado", value: "7.84 GB", color: "#3f5751" },
-                            { label: "<Generico>", value: "2.68 GB", color: "#dc2626" },
-                            { label: "Libre", value: "4.47 GB", color: "#0d9488" },
+                            { label: "Usado", value: `${ramUsado.toFixed(2)} GB`, color: "#3f5751" },
+                            { label: "Reservado", value: `${ramReservado.toFixed(2)} GB`, color: "#dc2626" },
+                            { label: "Libre", value: `${ramLibre.toFixed(2)} GB`, color: "#0d9488" },
                         ]}
                     />
                     <MetricCard
                         icon={GaugeIcon}
                         title="CPU"
                         donutSegments={[
-                            { value: 7.6, color: "#3f5751" },
-                            { value: 5.7, color: "#dc2626" },
-                            { value: 86.7, color: "#0d9488" },
+                            { value: cpuUsado, color: "#3f5751" },
+                            { value: cpuReservado, color: "#dc2626" },
+                            { value: cpuLibre, color: "#0d9488" },
                         ]}
                         total="100%"
                         items={[
-                            { label: "Usado", value: "7.6%", color: "#3f5751" },
-                            { label: "<Generico>", value: "5.7%", color: "#dc2626" },
-                            { label: "Libre", value: "86.7%", color: "#0d9488" },
+                            { label: "Usado", value: `${cpuUsado.toFixed(1)}%`, color: "#3f5751" },
+                            { label: "Sistema", value: `${cpuReservado.toFixed(1)}%`, color: "#dc2626" },
+                            { label: "Libre", value: `${cpuLibre.toFixed(1)}%`, color: "#0d9488" },
                         ]}
                     />
                 </div>

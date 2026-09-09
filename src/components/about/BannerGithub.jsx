@@ -22,10 +22,10 @@ export default function BannerGithub() {
                     {/* Texto y botón */}
                     <div className="flex-1 p-4 text-center md:p-8 md:text-left">
                         <span className="stack-chip mb-5">SOURCE: GITHUB/JIGNACIOC</span>
-                        <h3 className="text-3xl font-semibold text-ink md:text-4xl">Repos de Backend, IoT y DevOps</h3>
+                        <h3 className="text-3xl font-semibold text-ink md:text-4xl">Repos de Backend, Redes y Sistemas</h3>
                         <p className="mt-3 text-sm leading-6 text-muted md:text-base">
-                            Playgrounds de arquitectura distribuida, pipelines de observabilidad y utilidades
-                            para SCADA/IT-OT. Código listo para ser usado o adaptado en entornos aislados.
+                            Playgrounds de arquitectura backend, pipelines de observabilidad y utilidades
+                            de infraestructura. Código listo para ser usado o adaptado en distintos tipos de proyecto.
                         </p>
                         <a
                             href={githubUrl}

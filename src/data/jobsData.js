@@ -11,7 +11,7 @@ export const jobs = [
     ],
   },
   {
-    title: "Teknica by Legrand — Ingeniero de Software · Backend / DevOps IoT",
+    title: "Teknica by Legrand — Ingeniero de Software · Backend & Sistemas",
     time: ["18/10/2024 - 31/08/2026"],
     description:
       "Responsable end-to-end de plataformas SCADA/BMS de telemetría en producción real (datacenters, autopistas, edificios): del backend y la base de datos a la infraestructura y la puesta en marcha en terreno.",

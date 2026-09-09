@@ -5,7 +5,7 @@ const TypewriterComponent = () => {
   const reduceMotion = useReducedMotion();
   const strings = [
     "Backend: Django · Celery · PostgreSQL",
-    "Infra: Docker · Nginx · Linux",
+    "Redes & Linux: TCP/IP · Nginx · Ubuntu",
     "IoT/OT: Modbus · SNMP · KNX",
   ];
 

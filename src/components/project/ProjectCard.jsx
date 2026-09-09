@@ -88,7 +88,7 @@ export default function ProjectCard({
                             onClick={() => setShowPrivateModal(true)}
                             className="group mt-6 flex cursor-pointer items-center justify-start border-none bg-transparent p-0 font-technical text-sm font-semibold text-phosphor"
                         >
-                            Código
+                            Proyecto privado
                             <HiArrowRight
                                 className="ml-1 transition-transform duration-200 group-hover:translate-x-1"
                                 size={18}

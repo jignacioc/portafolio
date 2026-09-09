@@ -18,7 +18,6 @@ import BmsLogin from "./pages/demos/bms/Login.jsx";
 import BmsInicio from "./pages/demos/bms/Inicio.jsx";
 import BmsAlertas from "./pages/demos/bms/Alertas.jsx";
 import BmsDetalleEquipo from "./pages/demos/bms/DetalleEquipo.jsx";
-import BmsGestionEnergetica from "./pages/demos/bms/GestionEnergetica.jsx";
 import BmsSistema from "./pages/demos/bms/Sistema.jsx";
 import BmsLogs from "./pages/demos/bms/Logs.jsx";
 
@@ -62,7 +61,6 @@ function AppContent() {
                             <Route path="inicio" element={<BmsInicio />} />
                             <Route path="alertas" element={<BmsAlertas />} />
                             <Route path="equipo" element={<BmsDetalleEquipo />} />
-                            <Route path="gestion-energetica" element={<BmsGestionEnergetica />} />
                             <Route path="sistema" element={<BmsSistema />} />
                             <Route path="logs" element={<BmsLogs />} />
                         </Route>

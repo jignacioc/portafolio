@@ -16,14 +16,14 @@ export default function Features() {
                 />
                 <ServiceCard
                     icon={FaBolt}
-                    title="Plataformas IoT/OT y SCADA"
-                    description="Ingestión de datos en campo (Modbus TCP/RTU, SNMP) y orquestación de microservicios para sistemas SCADA de supervisión y control industrial, con resiliencia en entornos offline."
+                    title="Integración de Sistemas y Protocolos"
+                    description="Conexión de fuentes de datos heterogéneas — desde protocolos industriales hasta APIs de terceros — y orquestación de microservicios adaptados a cada proyecto."
                 />
 
                 <ServiceCard
                     icon={FaRocket}
-                    title="Observabilidad y DevOps"
-                    description="Dashboards y alertas con Prometheus, Grafana y Alertmanager; CI/CD ligero, Nginx reverse proxy y hardening en Linux para operaciones seguras."
+                    title="Redes, Linux y Observabilidad"
+                    description="Administración de servidores Linux, redes y reverse proxy con Nginx; dashboards y alertas con Prometheus, Grafana y Alertmanager para operaciones seguras."
                 />
             </div>
         </Reveal>

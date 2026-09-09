@@ -2,7 +2,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
     HomeIcon,
     BellIcon,
-    BoltIcon,
     ActivityIcon,
     CalendarIcon,
     LogoutIcon,
@@ -25,7 +24,6 @@ import {
 const ENABLED = [
     { to: "/proyectos/bms-core/inicio", label: "Inicio", icon: HomeIcon },
     { to: "/proyectos/bms-core/alertas", label: "Alertas", icon: BellIcon, badge: 46 },
-    { to: "/proyectos/bms-core/gestion-energetica", label: "Gestión de Energía", icon: BoltIcon },
     { to: "/proyectos/bms-core/sistema", label: "Sistema", icon: ActivityIcon },
     { to: "/proyectos/bms-core/logs", label: "Logs", icon: CalendarIcon },
 ];

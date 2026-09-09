@@ -70,19 +70,20 @@ function EquipoCard({ nombre, tipo = "meter", onVerMas }) {
 }
 
 const EQUIPOS = [
-    { nombre: "TDA PR ROL 1504" }, { nombre: "TDC PR ROL 1501" },
-    { nombre: "TDC PR ROL 1502" }, { nombre: "TDC PR ROL 1503" },
-    { nombre: "TDC PR ROL 1504" }, { nombre: "TDE IM ROL 1501" },
-    { nombre: "TDE IM ROL 1502" }, { nombre: "TDE IM ROL 1503" },
-    { nombre: "TDE IM ROL 1504" }, { nombre: "TDE PR ROL 1501" },
-    { nombre: "TDE PR ROL 1502" }, { nombre: "TDE PR ROL 1503" },
-    { nombre: "TDE PR ROL 1504" },
-    { nombre: "PDU Raritan iX7 - 6 461 01", tipo: "pdu" },
+    { nombre: "UPS A5 VERTIV", tipo: "ups" }, { nombre: "UPS A6 VERTIV", tipo: "ups" },
+    { nombre: "UPS B5 VERTIV", tipo: "ups" }, { nombre: "UPS B6 VERTIV", tipo: "ups" },
+    { nombre: "PDU Raritan iX7 - 6461-01", tipo: "pdu" },
     { nombre: "PDU Raritan iX7 - PX35085U", tipo: "pdu" },
-    { nombre: "UPS Keor Mod", tipo: "ups" },
-    { nombre: "TDA IM ROL 1501" }, { nombre: "TDA IM ROL 1502" },
-    { nombre: "TDA IM ROL 1503" }, { nombre: "TDA IM ROL 1504" },
-    { nombre: "TDA PR ROL 1501" }, { nombre: "TDA PR ROL 1502" },
+    { nombre: "Generador Diésel GE-01" }, { nombre: "Generador Diésel GE-02" },
+    { nombre: "Transformador T1 - Baja Tensión" }, { nombre: "Transformador T2 - Baja Tensión" },
+    { nombre: "Tablero de Distribución Principal TDP-01" },
+    { nombre: "Banco de Baterías B1" }, { nombre: "Banco de Baterías B2" },
+    { nombre: "Banco de Baterías B3" }, { nombre: "Banco de Baterías B4" },
+    { nombre: "Rectificador Telecom RCT-01" },
+    { nombre: "CRAC Sala Datacenter 1" }, { nombre: "CRAC Sala Datacenter 2" },
+    { nombre: "Chiller CH-01" },
+    { nombre: "Bomba de Agua Glicolada BP-01" },
+    { nombre: "Medidor General de Energía" },
 ];
 
 export default function Inicio() {
