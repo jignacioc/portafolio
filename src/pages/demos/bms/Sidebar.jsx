@@ -76,7 +76,7 @@ function NavItem({ to, label, icon: Icon, badge, active, disabled, onClick }) {
     return <li><Link to={to} className={cls}>{inner}</Link></li>;
 }
 
-export default function Sidebar() {
+export default function Sidebar({ enabled = ENABLED, disabled = DISABLED, salir = "/proyectos/bms-core" }) {
     const { pathname } = useLocation();
     const navigate = useNavigate();
 
@@ -88,14 +88,14 @@ export default function Sidebar() {
 
             <nav className="flex-1 py-2 overflow-y-auto">
                 <ul>
-                    {ENABLED.map((item) => (
+                    {enabled.map((item) => (
                         <NavItem
                             key={item.label}
                             to={item.to}
                             label={item.label}
                             icon={item.icon}
                             badge={item.badge}
-                            active={pathname === item.to}
+                            active={pathname.startsWith(item.to)}
                         />
                     ))}
 
@@ -103,7 +103,7 @@ export default function Sidebar() {
                         Próximamente
                     </li>
 
-                    {DISABLED.map((item) => (
+                    {disabled.map((item) => (
                         <NavItem
                             key={item.label}
                             label={item.label}
@@ -118,7 +118,7 @@ export default function Sidebar() {
                 <NavItem
                     label="Cerrar Sesión"
                     icon={LogoutIcon}
-                    onClick={() => navigate("/proyectos/bms-core")}
+                    onClick={() => navigate(salir)}
                 />
             </div>
         </aside>

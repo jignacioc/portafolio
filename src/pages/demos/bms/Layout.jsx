@@ -2,14 +2,14 @@ import { Outlet, Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Sidebar from "./Sidebar.jsx";
 
-export default function BmsLayout() {
+export default function BmsLayout({ titulo = "SCADA Software", sidebar = <Sidebar /> }) {
     const location = useLocation();
 
     return (
         <div className="bg-gray-50 text-gray-900">
             <div className="bg-white border-b border-gray-200 px-6 py-2 text-xs flex items-center justify-between">
                 <span className="text-gray-500">
-                    Demo · SCADA Software (&lt;Generico&gt;)
+                    Demo · {titulo} (&lt;Generico&gt;)
                 </span>
                 <Link
                     to="/proyectos"
@@ -19,7 +19,7 @@ export default function BmsLayout() {
                 </Link>
             </div>
             <div className="flex">
-                <Sidebar />
+                {sidebar}
                 <main className="flex-1 overflow-auto">
                     <AnimatePresence mode="wait">
                         <motion.div

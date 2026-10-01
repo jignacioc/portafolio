@@ -14,7 +14,7 @@ function GenericLogo() {
     );
 }
 
-export default function Login() {
+export default function Login({ titulo = "SCADA Software", inicio = "/proyectos/bms-core/inicio" }) {
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPwd] = useState(false);
@@ -22,14 +22,14 @@ export default function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate("/proyectos/bms-core/inicio");
+        navigate(inicio);
     };
 
     return (
         <div className="min-h-screen w-full bg-[#f1f4f6] flex flex-col">
             <div className="bg-white border-b border-gray-200 px-6 py-2 text-xs flex items-center justify-between">
                 <span className="text-gray-500">
-                    Demo · SCADA Software (&lt;Generico&gt;)
+                    Demo · {titulo} (&lt;Generico&gt;)
                 </span>
                 <Link
                     to="/proyectos"

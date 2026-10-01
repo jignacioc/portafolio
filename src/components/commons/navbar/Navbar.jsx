@@ -23,7 +23,7 @@ export default function Navbar() {
         closeMenu();
     }, [location.pathname]);
 
-    const isDemoBms = location.pathname.startsWith("/proyectos/bms-core");
+    const isDemoBms = location.pathname.startsWith("/proyectos/bms-");
     const isCollapsed = isDemoBms && !hovered && !isOpen;
 
     const isActive = (path) => {
