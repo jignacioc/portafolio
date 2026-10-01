@@ -22,7 +22,7 @@ export const proyectos = [
     demo: "https://suxen.cl/",
     codigo: "#",
     codigoPrivado: true,
-    categoria: "backend",
+    categorias: ["backend", "infra"],
   },
   {
     titulo: "SCADA Software",
@@ -42,7 +42,7 @@ export const proyectos = [
     demo: true,
     codigo: "#",
     codigoPrivado: true,
-    categoria: "backend",
+    categorias: ["backend", "infra", "iot"],
   },
   {
     titulo: "BMS Residencial",
@@ -63,7 +63,7 @@ export const proyectos = [
     demo: true,
     codigo: "#",
     codigoPrivado: true,
-    categoria: "iot",
+    categorias: ["backend", "iot"],
   },
   {
     titulo: "Ramses Joyas",
@@ -82,6 +82,6 @@ export const proyectos = [
     demo: "https://www.ramsesjoyas.cl/",
     codigo: "#",
     codigoPrivado: true,
-    categoria: "backend",
+    categorias: ["backend", "infra"],
   },
 ];

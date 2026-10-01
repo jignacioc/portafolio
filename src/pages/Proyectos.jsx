@@ -13,7 +13,7 @@ export default function Proyectos() {
 
     const filteredProjects = proyectos.filter((proyecto) => {
         if (activeFilter === "all") return true;
-        return proyecto.categoria && proyecto.categoria.toLowerCase() === activeFilter;
+        return proyecto.categorias?.includes(activeFilter);
     });
 
     const visibleProjects = filteredProjects.slice(0, itemsToShow);
