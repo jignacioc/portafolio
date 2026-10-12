@@ -3,9 +3,23 @@ import "../styles/projects.css";
 import Hero from "../components/commons/hero/Hero.jsx";
 import ProjectCard from "../components/project/ProjectCard.jsx";
 import Banner from "../components/commons/banners/Banner.jsx";
+import SectionHeading from "../components/commons/SectionHeading.jsx";
 import { proyectos } from "../data/projectData.js";
 
 const INITIAL_VISIBLE = 12;
+
+const SECCIONES = [
+    {
+        tipo: "personal",
+        titulo: "Proyectos personales",
+        bajada: "Productos propios: la idea, el desarrollo y la operación son míos.",
+    },
+    {
+        tipo: "laboral",
+        titulo: "Proyectos laborales",
+        bajada: "Sistemas desarrollados para empresas y clientes.",
+    },
+];
 
 export default function Proyectos() {
     const [activeFilter, setActiveFilter] = useState("all");
@@ -63,25 +77,32 @@ export default function Proyectos() {
                 </button>
             </div>
 
-            {/* Cards */}
-            <div
-                id="projects-container"
-                className="mx-auto flex max-w-6xl flex-wrap justify-center gap-5 px-5 pt-6 md:px-6"
-            >
-                {visibleProjects.map((proyecto) => (
-                    <ProjectCard
-                        key={proyecto.titulo}
-                        titulo={proyecto.titulo}
-                        slug={proyecto.slug}
-                        descripcion={proyecto.descripcion}
-                        imagen={proyecto.imagen}
-                        tecnologias={proyecto.tecnologias}
-                        demo={proyecto.demo}
-                        codigo={proyecto.codigo}
-                        codigoPrivado={proyecto.codigoPrivado}
-                    />
-                ))}
-            </div>
+            {/* Cards: personales y laborales */}
+            {SECCIONES.map(({ tipo, titulo, bajada }) => {
+                const items = visibleProjects.filter((p) => p.tipo === tipo);
+                if (items.length === 0) return null;
+                return (
+                    <section key={tipo} className="mx-auto max-w-6xl px-5 pt-10 md:px-6">
+                        <SectionHeading>{titulo}</SectionHeading>
+                        <p className="mt-3 text-muted">{bajada}</p>
+                        <div className="flex flex-wrap justify-center gap-5 pt-6">
+                            {items.map((proyecto) => (
+                                <ProjectCard
+                                    key={proyecto.titulo}
+                                    titulo={proyecto.titulo}
+                                    slug={proyecto.slug}
+                                    descripcion={proyecto.descripcion}
+                                    imagen={proyecto.imagen}
+                                    tecnologias={proyecto.tecnologias}
+                                    demo={proyecto.demo}
+                                    codigo={proyecto.codigo}
+                                    codigoPrivado={proyecto.codigoPrivado}
+                                />
+                            ))}
+                        </div>
+                    </section>
+                );
+            })}
 
             {/* Ver el resto de los proyectos */}
             {filteredProjects.length > itemsToShow && (

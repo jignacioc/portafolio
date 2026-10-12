@@ -23,6 +23,7 @@ export const proyectos = [
     codigo: "#",
     codigoPrivado: true,
     categorias: ["backend", "infra"],
+    tipo: "personal",
   },
   {
     titulo: "SCADA Software",
@@ -43,6 +44,7 @@ export const proyectos = [
     codigo: "#",
     codigoPrivado: true,
     categorias: ["backend", "infra", "iot"],
+    tipo: "laboral",
   },
   {
     titulo: "BMS Residencial",
@@ -64,6 +66,7 @@ export const proyectos = [
     codigo: "#",
     codigoPrivado: true,
     categorias: ["backend", "iot"],
+    tipo: "laboral",
   },
   {
     titulo: "Ramses Joyas",
@@ -83,5 +86,6 @@ export const proyectos = [
     codigo: "#",
     codigoPrivado: true,
     categorias: ["backend", "infra"],
+    tipo: "laboral",
   },
 ];
